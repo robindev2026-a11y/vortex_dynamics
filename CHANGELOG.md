@@ -18,6 +18,8 @@
 - JavaScript syntax checks passed.
 - Local static server confirmed all eight pages returned `200`.
 - Browser verification confirmed 5 R&D Lab cards, 1 featured card, the drone/sensor image in the featured card, no console errors, and no horizontal scroll on desktop or mobile.
+- GitHub Pages build for commit `87adfa3` completed successfully.
+- Live HTML contains `Inside the Vortiq R&D Lab.` and live `assets/js/data.js` references `drone-sensor-fusion-module.png`.
 
 ## [2026-06-12] - AI Handoff Documentation Added
 

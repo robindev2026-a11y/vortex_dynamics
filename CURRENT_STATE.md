@@ -18,6 +18,7 @@ The current site is a polished first version with placeholder contact details an
 - GitHub Pages build: API reported `built`
 - Public URL: `https://robindev2026-a11y.github.io/vortex_dynamics/`
 - Live URL verification: confirmed HTTP `200`, HTML contains `Vortiq Dynamics`
+- Latest R&D Lab deployment: GitHub Pages build for commit `87adfa3` reported `built`; live HTML contains `Inside the Vortiq R&D Lab.` and live `assets/js/data.js` references `drone-sensor-fusion-module.png`
 
 ## Current Architecture
 
@@ -124,6 +125,7 @@ Local verification completed after the static build:
   - Mobile menu working
   - No console/page errors
 - R&D Lab verification confirmed no horizontal scroll on desktop or mobile.
+- Live GitHub Pages verification confirmed the R&D Lab section text and data-file image reference are published.
 - Desktop screenshot: [verification/home-desktop-revealed.png](./verification/home-desktop-revealed.png)
 - Mobile screenshot: [verification/home-mobile-revealed.png](./verification/home-mobile-revealed.png)
 - R&D Lab desktop screenshot: [verification/home-rd-lab-desktop.png](./verification/home-rd-lab-desktop.png)
