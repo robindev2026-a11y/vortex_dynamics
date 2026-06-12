@@ -124,6 +124,31 @@
     });
   }
 
+  function renderRDLab() {
+    document.querySelectorAll("[data-render='rd-lab']").forEach((mount) => {
+      mount.innerHTML = data.rdLab
+        .map(
+          (item, index) => `
+            <article class="lab-card ${item.featured ? "featured" : ""} reveal" style="--delay:${index * 80}ms">
+              <div class="ambient-media compact">
+                <img class="ambient-bg" src="${item.image}" alt="" aria-hidden="true">
+                <img class="ambient-main" src="${item.image}" alt="${escapeHtml(item.alt)}">
+              </div>
+              <div class="lab-card-body">
+                <p>${escapeHtml(item.category)}</p>
+                <h3>${escapeHtml(item.title)}</h3>
+                <span>${escapeHtml(item.description)}</span>
+                <div class="lab-tags">
+                  ${item.tags.map((tag) => `<em>${escapeHtml(tag)}</em>`).join("")}
+                </div>
+              </div>
+            </article>
+          `
+        )
+        .join("");
+    });
+  }
+
   function renderProcess() {
     document.querySelectorAll("[data-render='process']").forEach((mount) => {
       mount.innerHTML = data.process
@@ -341,6 +366,7 @@
   renderFooter();
   renderServices();
   renderFlow();
+  renderRDLab();
   renderProcess();
   renderTechStack();
   renderCaseStudies();

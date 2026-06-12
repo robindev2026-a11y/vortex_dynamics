@@ -47,6 +47,7 @@ This is a no-build static site:
 - Style: modern, engineering-first, trustworthy, interactive
 - Hero: abstract PCB/cloud animation
 - Hero text: typewriter effect
+- Homepage showcase: `Inside the Vortiq R&D Lab` featured grid after Capability Flow and before Services
 - Services: all seven service cards equally visible
 - Media: placeholder SVGs now, real work images later
 - Image treatment: ambient blurred background clone behind clear foreground image
@@ -83,6 +84,7 @@ Expected future admin-editable groups:
 - Navigation
 - Hero content and media
 - Services
+- R&D Lab / work-studio images
 - Capability flow
 - Tech stack
 - Case studies
@@ -99,6 +101,7 @@ Expected future admin-editable groups:
 - `India / Global project delivery`
 - Social links use `#`
 - Work/project images are SVG placeholders
+- R&D Lab cards are placeholders for future IoT, DevOps/cloud, mobile/web, edge AI, and integration-room photos
 - Forms show static success messages and do not submit to a backend
 - Resume upload is visual only until a backend/form service exists
 
@@ -114,18 +117,22 @@ Local verification completed after the static build:
   - 7 nav links
   - 7 service cards
   - 7 capability flow nodes
+  - 5 R&D Lab cards with 1 featured card
   - 3 case cards
   - 5 FAQ items
   - Quote form success behavior working
   - Mobile menu working
   - No console/page errors
+- R&D Lab verification confirmed no horizontal scroll on desktop or mobile.
 - Desktop screenshot: [verification/home-desktop-revealed.png](./verification/home-desktop-revealed.png)
 - Mobile screenshot: [verification/home-mobile-revealed.png](./verification/home-mobile-revealed.png)
+- R&D Lab desktop screenshot: [verification/home-rd-lab-desktop.png](./verification/home-rd-lab-desktop.png)
+- R&D Lab mobile screenshot: [verification/home-rd-lab-mobile.png](./verification/home-rd-lab-mobile.png)
 
 ## Open Issues / Next Plan
 
 1. Replace placeholder phone, email, location, and social links when the user provides final details.
-2. Replace placeholder SVGs with real work images.
+2. Replace placeholder SVGs with real work images, especially for the R&D Lab showcase.
 3. Connect quote/contact/career forms to a real backend or form service when requested.
 4. Build the admin panel later, using the existing data-driven content structure as the target shape.
 5. Consider moving GitHub Pages deployment to `publish/` through a Pages workflow if the user does not want planning docs available from the public repo root.

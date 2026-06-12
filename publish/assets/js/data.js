@@ -87,6 +87,54 @@ window.VORTIQ_DATA = {
     { title: "Mobile App", detail: "Field apps, customer apps, operations" },
     { title: "Edge AI", detail: "Vision, prediction, autonomous intelligence" }
   ],
+  rdLab: [
+    {
+      id: "integration-room",
+      title: "Product Integration Room",
+      category: "Systems R&D",
+      description: "A central view of architecture planning, prototype review, device testing, and platform integration.",
+      image: "assets/images/drone-sensor-fusion-module.png",
+      alt: "Drone sensor fusion module with connected sensing components",
+      tags: ["Sensor Fusion", "Edge Systems", "Integration"],
+      featured: true
+    },
+    {
+      id: "iot-embedded-lab",
+      title: "IoT & Embedded Lab",
+      category: "Hardware",
+      description: "Boards, sensors, firmware, telemetry, and connected-device testing.",
+      image: "assets/images/iot-embedded.svg",
+      alt: "Placeholder IoT and embedded hardware lab visual",
+      tags: ["PCB", "Sensors", "Firmware"]
+    },
+    {
+      id: "cloud-devops-room",
+      title: "Cloud & DevOps Room",
+      category: "Cloud",
+      description: "Dashboards, APIs, Docker/Kubernetes planning, deployments, and monitoring.",
+      image: "assets/images/cloud-dashboard.svg",
+      alt: "Placeholder cloud DevOps dashboard visual",
+      tags: ["Docker", "Kubernetes", "APIs"]
+    },
+    {
+      id: "mobile-web-studio",
+      title: "Mobile & Web Studio",
+      category: "Applications",
+      description: "Mobile UI, admin panels, field apps, product websites, and business platforms.",
+      image: "assets/images/mobile-ui.svg",
+      alt: "Placeholder mobile and web application studio visual",
+      tags: ["Mobile UI", "Web Apps", "Dashboards"]
+    },
+    {
+      id: "edge-ai-lab",
+      title: "AI & Edge Vision Lab",
+      category: "Intelligence",
+      description: "On-device intelligence, vision systems, predictive logic, autonomous navigation, and ADAS concepts.",
+      image: "assets/images/hero-pcb-cloud.svg",
+      alt: "Placeholder edge AI system visual",
+      tags: ["Vision AI", "Edge AI", "ADAS"]
+    }
+  ],
   process: [
     {
       title: "Understand Requirement",
@@ -185,6 +233,7 @@ window.VORTIQ_DATA = {
   mediaSlots: [
     "hero",
     "about",
+    "rd-lab",
     "services",
     "case-studies",
     "gallery",
