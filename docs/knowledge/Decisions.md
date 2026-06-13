@@ -61,3 +61,16 @@ Important project decisions and their rationale.
 **Alternatives considered:** Feature only three primary services and group the rest. This was rejected because it underrepresented the service catalog.
 
 **Tradeoffs:** The page needs careful responsive layout to keep the catalog readable without overcrowding.
+
+## 2026-06-13 - Shift to Dark-First Luxury Aesthetic & Smooth Interactivity
+
+**Decision:** Transform the website into a dark-first B2B luxury tech product showcase (Apple-level polish) with Outfit/Inter typography, Lenis inertial scroll, scroll-triggered reveals, page transitions, and theme-toggling.
+
+**Context:** The previous version used a warm cream background which felt classic but lacked the high-end, futuristic tech feel requested by the user.
+
+**Rationale:** High-contrast dark obsidian layout combined with wide, clean typography (Outfit) and fluid inertia scrolling (Lenis) immediately creates a luxury, premium digital experience. Toggling themes dynamically satisfies both preferences while maintaining visual contrast.
+
+**Alternatives considered:** Keep the light cream background default and add simple transitions. This was rejected because the visual impact did not feel sufficiently premium or high-tech.
+
+**Tradeoffs:** Added dependencies on Lenis smooth scroll and Google Fonts, requiring careful styling overrides for light/dark modes and scroll events, but greatly increases aesthetic appeal and user engagement.
+

@@ -52,14 +52,19 @@ For the durable architecture record, use [Architecture.md](./Architecture.md). F
 ## Design Contract
 
 - Brand: Vortiq Dynamics
-- Style: modern, engineering-first, trustworthy, interactive
-- Hero: abstract PCB/cloud animation
+- Style: B2B Luxury Tech Pro Showcase (Apple-level polish)
+- Fonts: Outfit (headings), Inter (body)
+- Theme: default Obsidian Dark Mode (`#05080C`) with smooth transition toggle to Cream Light Mode
+- Scroll: Lenis Inertial Scroll with custom slide-up reveals
+- Transitions: fade page transitions on internal link loads
+- Header: scroll blurs with autohide on scroll down
+- Hero: interactive SVG circuit board (hover scaling nodes & hot pulses)
 - Hero text: typewriter effect
 - Homepage showcase: `Inside the Vortiq R&D Lab` featured grid after Capability Flow and before Services
 - Services: all seven service cards equally visible
 - Media: placeholder SVGs now, real work images later
 - Image treatment: ambient blurred background clone behind clear foreground image
-- Motion: lightweight CSS/JS animation with reduced-motion support
+- Motion: scroll reveals, hover transitions, and page transitions with reduced-motion overrides
 
 ## Palette Rules
 

@@ -1,5 +1,24 @@
 # CHANGELOG - Vortiq Dynamics
 
+## [2026-06-13] - B2B Modernization & Apple-Level Polish
+
+**What changed:**
+- **Luxury Aesthetic**: Redefined the visual theme to a default premium Dark Mode (Deep Obsidian `#05080C`) with a smooth dark/light mode toggle.
+- **High-End Typography**: Integrated **Outfit** (headings) and **Inter** (body text) Google Fonts with fine-tuned tight tracking and leading.
+- **Lenis Smooth Scroll**: Added Lenis smooth scrolling for momentum-based inertial scrolling.
+- **Scroll Reveals & Transitions**: Custom `IntersectionObserver` triggers scroll reveals; clicking internal navigation links initiates smooth fade transitions.
+- **Auto-Hiding Header**: The header blurs dynamically and autohides on scroll-down, sliding back down on scroll-up.
+- **Interactive Circuit Nodes**: Hovering over the hero SVG circuit map dynamically expands nodes and accelerates telemetry line flows.
+- **Form Hardcoding & Carousel Cleanups**: Dynamically rendered contact info from `data.js`, added upload type limits, and configured lazy-syncing on carousel images.
+- **Zip and Code Syncing**: Synchronized all updates from `project/` into `publish/` and rebuilt `vortiq-dynamics-static-site.zip`.
+
+**Why:**
+- Make the B2B tech consulting landing page look extremely premium, high-contrast, responsive, and interactive to mimic luxury tech showcases.
+
+**Verification:**
+- Verified no JS syntax errors.
+- Confirmed the pages build action completed successfully and live pages render with Google Fonts and scroll scripts.
+
 ## [2026-06-13] - Project Structure Organized
 
 **What changed:**
