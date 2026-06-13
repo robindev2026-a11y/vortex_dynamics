@@ -1,24 +1,24 @@
 :root {
-  /* Premium Dark Theme variables (default) */
-  --bg-obsidian: #05080C;
-  --bg-slate: #0A0E17;
-  --bg-card: rgba(13, 20, 35, 0.45);
-  --bg-card-hover: rgba(20, 30, 50, 0.6);
+  /* Premium Light Theme variables (Default) */
+  --bg-obsidian: #fbf5dd;
+  --bg-slate: #f5eed3;
+  --bg-card: rgba(255, 255, 255, 0.62);
+  --bg-card-hover: rgba(255, 255, 255, 0.82);
   
-  --deep-teal: #008D96;
-  --dark-teal: #0C1E21;
-  --mint: #00F59B;
-  --green: #05FF8F;
-  --yellow: #FFE869;
-  --pink: #FF66AA;
-  --cream: #05080C;
-  --slate: #8F9FA2;
-  --charcoal: #02050A;
+  --deep-teal: #005461;
+  --dark-teal: #1e3d40;
+  --mint: #a8e6cf;
+  --green: #3ed16f;
+  --yellow: #fff57e;
+  --pink: #ff7eb6;
+  --cream: #fbf5dd;
+  --slate: #7a8c8e;
+  --charcoal: #0b1f23;
   --white: #ffffff;
-  --text: #F1F5F9;
-  --muted: #94A3B8;
-  --line: rgba(0, 245, 155, 0.08);
-  --shadow: 0 24px 80px rgba(0, 0, 0, 0.55);
+  --text: #102528;
+  --muted: #5b6f70;
+  --line: rgba(11, 31, 35, 0.05);
+  --shadow: 0 22px 70px rgba(11, 31, 35, 0.16);
   --radius: 12px;
   --max: 1180px;
   
@@ -27,29 +27,6 @@
   
   /* Smooth Cubic-Bezier Transition */
   --transition-premium: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-/* Light Theme Variables */
-[data-theme="light"] {
-  --bg-obsidian: #F8FAFC;
-  --bg-slate: #F1F5F9;
-  --bg-card: rgba(255, 255, 255, 0.65);
-  --bg-card-hover: rgba(255, 255, 255, 0.85);
-  
-  --deep-teal: #005461;
-  --dark-teal: #1E3D40;
-  --mint: #00C875;
-  --green: #00C875;
-  --yellow: #E6B800;
-  --pink: #E60067;
-  --cream: #F8FAFC;
-  --slate: #5B6F70;
-  --charcoal: #0B1F23;
-  --white: #0B1F23;
-  --text: #0F172A;
-  --muted: #475569;
-  --line: rgba(11, 31, 35, 0.05);
-  --shadow: 0 22px 70px rgba(15, 23, 42, 0.08);
 }
 
 * {
@@ -1588,59 +1565,6 @@ textarea {
   transform: translate(-50%, -100px);
 }
 
-/* Header Action Wrapper & Theme Toggle */
-.header-actions-wrap {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.theme-toggle {
-  display: grid;
-  place-items: center;
-  width: 44px;
-  height: 44px;
-  color: var(--white);
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  border-radius: var(--radius);
-  cursor: pointer;
-  transition: var(--transition-premium);
-}
-
-.theme-toggle:hover {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: var(--mint);
-  color: var(--mint);
-  transform: scale(1.05);
-}
-
-.theme-toggle svg {
-  width: 20px;
-  height: 20px;
-  grid-area: 1 / 1;
-  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
-}
-
-/* Light Theme Toggle States */
-[data-theme="light"] .theme-toggle .sun-icon {
-  opacity: 0;
-  transform: rotate(45deg) scale(0.5);
-}
-[data-theme="light"] .theme-toggle .moon-icon {
-  opacity: 1;
-  transform: rotate(0) scale(1);
-}
-
-/* Dark Theme Toggle States (Default) */
-.theme-toggle .sun-icon {
-  opacity: 1;
-  transform: rotate(0) scale(1);
-}
-.theme-toggle .moon-icon {
-  opacity: 0;
-  transform: rotate(-45deg) scale(0.5);
-}
 
 /* Lenis Scroll Overrides */
 html.lenis, html.lenis body {

@@ -48,13 +48,7 @@
         <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
           ${nav}
         </nav>
-        <div class="header-actions-wrap">
-          <button class="theme-toggle" type="button" aria-label="Toggle dark/light theme">
-            <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path></svg>
-            <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>
-          </button>
-          <a class="header-cta" href="request-quote.html">Request Quote</a>
-        </div>
+        <a class="header-cta" href="request-quote.html">Request Quote</a>
       </header>
     `;
   }
@@ -482,22 +476,6 @@
     }
   }
 
-  function initTheme() {
-    const toggle = document.querySelector(".theme-toggle");
-    if (!toggle) return;
-    
-    const saved = localStorage.getItem("theme");
-    const isDark = saved ? saved === "dark" : true;
-    
-    document.documentElement.setAttribute("data-theme", isDark ? "dark" : "light");
-    
-    toggle.addEventListener("click", () => {
-      const current = document.documentElement.getAttribute("data-theme") || "dark";
-      const next = current === "dark" ? "light" : "dark";
-      document.documentElement.setAttribute("data-theme", next);
-      localStorage.setItem("theme", next);
-    });
-  }
 
   function initLenis() {
     if (typeof Lenis === "undefined") return;
@@ -587,7 +565,6 @@
   initAmbientMedia();
   initAdminSchema();
   initContactInfo();
-  initTheme();
   initLenis();
   initPageTransitions();
   initCircuitMap();
