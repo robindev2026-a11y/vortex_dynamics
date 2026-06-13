@@ -11,7 +11,7 @@
   --white: #ffffff;
   --text: #102528;
   --muted: #5b6f70;
-  --line: rgba(11, 31, 35, 0.14);
+  --line: rgba(11, 31, 35, 0.05);
   --shadow: 0 22px 70px rgba(11, 31, 35, 0.16);
   --radius: 8px;
   --max: 1180px;
@@ -162,7 +162,7 @@ textarea {
   padding: 12px 18px;
   color: var(--charcoal);
   background: var(--green);
-  border: 1px solid rgba(11, 31, 35, 0.12);
+  border: 1px solid rgba(11, 31, 35, 0.05);
   border-radius: var(--radius);
   box-shadow: 0 12px 28px rgba(62, 209, 111, 0.22);
   font-weight: 800;
@@ -1011,7 +1011,7 @@ textarea {
   padding: 12px 13px;
   color: var(--text);
   background: rgba(255, 255, 255, 0.82);
-  border: 1px solid rgba(11, 31, 35, 0.18);
+  border: 1px solid rgba(11, 31, 35, 0.08);
   border-radius: var(--radius);
   outline: none;
   transition: border-color 160ms ease, box-shadow 160ms ease;
