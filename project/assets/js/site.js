@@ -48,7 +48,13 @@
         <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
           ${nav}
         </nav>
-        <a class="header-cta" href="request-quote.html">Request Quote</a>
+        <div class="header-actions-wrap">
+          <button class="theme-toggle" type="button" aria-label="Toggle dark/light theme">
+            <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path></svg>
+            <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>
+          </button>
+          <a class="header-cta" href="request-quote.html">Request Quote</a>
+        </div>
       </header>
     `;
   }
@@ -58,7 +64,7 @@
     if (!mount) return;
     const navLinks = data.nav.map((item) => `<a href="${item.href}">${item.label}</a>`).join("");
     const serviceLinks = data.services.map((item) => `<a href="services.html#${item.id}">${item.title}</a>`).join("");
-    const socialLinks = data.site.social.map((item) => `<a href="${item.href}">${item.label}</a>`).join("");
+    const socialLinks = data.site.social.map((item) => `<a href="${item.href}" target="_blank" rel="noopener noreferrer">${item.label}</a>`).join("");
     mount.innerHTML = `
       <footer class="site-footer">
         <div class="footer-brand">
@@ -222,7 +228,7 @@
               (item, index) => `
                 <div class="carousel-slide ${index === 0 ? "active" : ""}">
                   <div class="ambient-media">
-                    <img class="ambient-bg" src="${item.image}" alt="" aria-hidden="true">
+                    <img class="ambient-bg" src="" alt="" aria-hidden="true">
                     <img class="ambient-main" src="${item.image}" alt="${escapeHtml(item.alt)}">
                   </div>
                   <div class="carousel-info">
@@ -458,6 +464,116 @@
     });
   }
 
+  function initContactInfo() {
+    const emailLink = document.querySelector("[data-contact-email]");
+    const phoneLink = document.querySelector("[data-contact-phone]");
+    const locationSpan = document.querySelector("[data-contact-location]");
+    
+    if (emailLink) {
+      emailLink.href = `mailto:${data.site.email}`;
+      emailLink.textContent = data.site.email;
+    }
+    if (phoneLink) {
+      phoneLink.href = `tel:${data.site.phone.replaceAll(" ", "")}`;
+      phoneLink.textContent = data.site.phone;
+    }
+    if (locationSpan) {
+      locationSpan.textContent = data.site.location;
+    }
+  }
+
+  function initTheme() {
+    const toggle = document.querySelector(".theme-toggle");
+    if (!toggle) return;
+    
+    const saved = localStorage.getItem("theme");
+    const isDark = saved ? saved === "dark" : true;
+    
+    document.documentElement.setAttribute("data-theme", isDark ? "dark" : "light");
+    
+    toggle.addEventListener("click", () => {
+      const current = document.documentElement.getAttribute("data-theme") || "dark";
+      const next = current === "dark" ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", next);
+      localStorage.setItem("theme", next);
+    });
+  }
+
+  function initLenis() {
+    if (typeof Lenis === "undefined") return;
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+      smoothTouch: false
+    });
+    
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+  }
+
+  function initPageTransitions() {
+    const shell = document.querySelector(".site-shell");
+    if (!shell) return;
+    
+    shell.classList.add("page-loaded");
+    
+    document.body.addEventListener("click", (event) => {
+      const link = event.target.closest("a");
+      if (!link) return;
+      
+      const href = link.getAttribute("href");
+      if (!href || href.startsWith("#") || href.startsWith("mailto:") || href.startsWith("tel:") || link.getAttribute("target") === "_blank") {
+        return;
+      }
+      
+      if (href.endsWith(".html")) {
+        event.preventDefault();
+        shell.classList.remove("page-loaded");
+        shell.classList.add("page-leaving");
+        
+        setTimeout(() => {
+          window.location.href = href;
+        }, 350);
+      }
+    });
+  }
+
+  function initCircuitMap() {
+    const map = document.querySelector(".circuit-map");
+    if (!map) return;
+    const nodes = map.querySelectorAll(".node");
+    const traces = map.querySelectorAll(".trace");
+    
+    nodes.forEach((node) => {
+      node.style.cursor = "pointer";
+      node.style.transformOrigin = `${node.getAttribute("cx")}px ${node.getAttribute("cy")}px`;
+      node.style.transition = "transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), fill 0.4s ease";
+      node.style.outline = "none";
+      
+      node.addEventListener("mouseenter", () => {
+        node.style.transform = "scale(1.25)";
+        node.style.fill = "var(--green)";
+        traces.forEach((t) => {
+          t.style.strokeWidth = "3.5px";
+          t.style.animationDuration = "2.2s";
+        });
+      });
+      
+      node.addEventListener("mouseleave", () => {
+        node.style.transform = "scale(1)";
+        node.style.fill = "";
+        traces.forEach((t) => {
+          t.style.strokeWidth = "";
+          t.style.animationDuration = "";
+        });
+      });
+    });
+  }
+
   renderHeader();
   renderFooter();
   renderServices();
@@ -470,6 +586,11 @@
   renderFaq();
   initAmbientMedia();
   initAdminSchema();
+  initContactInfo();
+  initTheme();
+  initLenis();
+  initPageTransitions();
+  initCircuitMap();
   initNav();
   initHeaderScroll();
   initTypewriter();

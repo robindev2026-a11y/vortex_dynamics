@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Careers | Vortiq Dynamics</title>
     <meta name="description" content="Apply to Vortiq Dynamics for roles across software, cloud, embedded systems, mobile, IoT, and edge AI.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css">
   </head>
   <body data-page="careers">
@@ -26,14 +29,14 @@
               <p>Use this form as a static placeholder for now. Later, the admin/backend layer can route applications and resume uploads properly.</p>
               <div class="admin-slots" data-admin-slots></div>
             </aside>
-            <form class="form-panel reveal" data-static-form>
+            <form class="form-panel reveal" data-static-form enctype="multipart/form-data">
               <div class="form-grid">
                 <div class="field"><label for="career-name">Name</label><input id="career-name" name="name" required></div>
                 <div class="field"><label for="career-email">Email</label><input id="career-email" name="email" type="email" required></div>
                 <div class="field"><label for="career-phone">Phone</label><input id="career-phone" name="phone"></div>
                 <div class="field"><label for="career-role">Role Interested In</label><input id="career-role" name="role" placeholder="Embedded, cloud, frontend, mobile..."></div>
                 <div class="field"><label for="career-exp">Experience</label><input id="career-exp" name="experience" placeholder="2 years, fresher, etc."></div>
-                <div class="field"><label for="career-resume">Resume Upload</label><input id="career-resume" name="resume" type="file"></div>
+                <div class="field"><label for="career-resume">Resume Upload</label><input id="career-resume" name="resume" type="file" accept=".pdf,.docx,.doc"></div>
                 <div class="field full"><label for="career-message">Message</label><textarea id="career-message" name="message" placeholder="Tell us about your skills and interests."></textarea></div>
               </div>
               <button class="btn" type="submit">Submit Application</button>
@@ -44,6 +47,7 @@
       </main>
       <div data-footer></div>
     </div>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
     <script src="assets/js/data.js"></script>
     <script src="assets/js/site.js"></script>
   </body>
