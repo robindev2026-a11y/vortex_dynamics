@@ -17,11 +17,12 @@ The current site is a polished first version with placeholder contact details an
 - Clean deploy folder: created at [publish](../../publish)
 - Deploy zip: created at [vortiq-dynamics-static-site.zip](../../vortiq-dynamics-static-site.zip)
 - GitHub repo: `robindev2026-a11y/vortex_dynamics`
-- GitHub Pages: enabled from `main` branch `/`
-- GitHub Pages build: API reported `built`
+- GitHub Pages: configured to deploy via GitHub Actions (workflow build type)
+- GitHub Pages build: API confirms `build_type: workflow` and successful workflow run
 - Public URL: `https://robindev2026-a11y.github.io/vortex_dynamics/`
-- Live URL verification: confirmed HTTP `200`, HTML contains `Vortiq Dynamics`
-- Latest R&D Lab deployment: GitHub Pages build for commit `87adfa3` reported `built`; live HTML contains `Inside the Vortiq R&D Lab.` and live `assets/js/data.js` references `drone-sensor-fusion-module.png`
+- Live URL verification: confirmed HTTP `200`, serving the correct interactive site homepage (not the repository README)
+- Latest deployment: successful run of `Deploy Pages` workflow deploying the `publish` directory
+
 
 ## Current Architecture
 
@@ -143,7 +144,7 @@ Local verification completed after the static build:
 2. Replace placeholder SVGs with real work images, especially for the R&D Lab showcase.
 3. Connect quote/contact/career forms to a real backend or form service when requested.
 4. Build the admin panel later, using the existing data-driven content structure as the target shape.
-5. Use a Pages workflow or equivalent publish process so GitHub Pages serves [publish](../../publish), not repository root.
+
 
 Durable issue, feature, and deferred-work tracking now lives in [KnownIssues.md](./KnownIssues.md), [PlannedFeatures.md](./PlannedFeatures.md), and [DeferredWork.md](./DeferredWork.md).
 

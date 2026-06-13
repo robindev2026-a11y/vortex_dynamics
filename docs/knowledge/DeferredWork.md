@@ -22,11 +22,6 @@
   - Risk: Content updates require code edits until the admin workflow exists.
   - Suggested timing: After the static site content and business details stabilize.
 
-- Item: Confirm GitHub Pages workflow deployment.
-  - Reason deferred: Workflow exists in the repo, but GitHub Pages settings may need to use GitHub Actions as the source.
-  - Risk: The live GitHub Pages URL may not update until the workflow is accepted by repository settings.
-  - Suggested timing: Immediately after push.
-
 ## Refactoring Opportunities
 
 - Area: Deployment package synchronization.
@@ -40,3 +35,9 @@
 - Area: Image pipeline.
   - Problem: Placeholders and generated media need consistency across site, Instagram, and LinkedIn.
   - Suggested improvement: Build a repeatable media generation and optimization workflow based on [TONY_IMAGE_GENERATION_GUIDE.md](../media/TONY_IMAGE_GENERATION_GUIDE.md).
+
+## Completed Items
+
+- Item: Confirm and configure GitHub Pages workflow deployment.
+  - Completion: Updated repository Pages build type settings to `workflow` via the API and successfully ran/monitored the deployment workflow, confirming the live URL now serves the static site correctly.
+

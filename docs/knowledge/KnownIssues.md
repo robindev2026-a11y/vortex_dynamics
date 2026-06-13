@@ -22,11 +22,6 @@
   - Workaround: Use approved placeholders now and replace with real or generated consistent R&D imagery later.
   - Status: Open.
 
-- Issue: GitHub Pages settings may need to allow GitHub Actions as the Pages source.
-  - Impact: The workflow may not publish until the repository Pages source is set to GitHub Actions.
-  - Workaround: Use [publish](../../publish) for clean hosting, or set Pages source to GitHub Actions in repository settings.
-  - Status: Open until the workflow deployment is confirmed live.
-
 ## Risks
 
 - Risk: Source and [publish](../../publish) can drift.
@@ -43,3 +38,9 @@
   - Likelihood: Medium after visual changes.
   - Impact: Horizontal scroll, overlap, or inaccessible animation.
   - Mitigation: Verify desktop/mobile, no horizontal scroll, console/page errors, and `prefers-reduced-motion` behavior after visual changes.
+
+## Resolved Issues
+
+- Issue: GitHub Pages settings may need to allow GitHub Actions as the Pages source.
+  - Resolution: Configured repository Pages settings via GitHub CLI API (`PUT /repos/{owner}/{repo}/pages` with `build_type: workflow`). Confirmed successful run of `Deploy Pages` workflow deploying the `publish` directory and confirmed correct static site is serving live.
+
