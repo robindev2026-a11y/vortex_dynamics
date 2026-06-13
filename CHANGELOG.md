@@ -3,20 +3,22 @@
 ## [2026-06-13] - Project Structure Organized
 
 **What changed:**
-- Added [site](./site) as the canonical editable website source.
-- Added [scripts/sync-site.sh](./scripts/sync-site.sh) to sync [site](./site) into the repository root and [publish](./publish).
+- Added [project](./project) as the canonical editable website source.
+- Removed duplicated website HTML/assets from the repository root.
+- Added [scripts/sync-site.sh](./scripts/sync-site.sh) to sync [project](./project) into [publish](./publish).
+- Added [.github/workflows/deploy-pages.yml](./.github/workflows/deploy-pages.yml) to deploy [publish](./publish) to GitHub Pages.
 - Moved AI Root System knowledge files into [docs/knowledge](./docs/knowledge).
 - Moved planning docs into [docs/planning](./docs/planning), media guidance into [docs/media](./docs/media), alignment reports into [docs/alignment](./docs/alignment), and verification screenshots into [docs/verification](./docs/verification).
 - Updated [AI.md](./AI.md), [README.md](./README.md), and knowledge docs to describe the new structure.
 - Refreshed [vortiq-dynamics-static-site.zip](./vortiq-dynamics-static-site.zip) from [publish](./publish).
 
 **Why:**
-- The project needed a maintainable folder structure while preserving the current GitHub Pages root deployment.
+- The project needed a cleaner maintainable folder structure with source files in [project](./project) and deploy output in [publish](./publish).
 
 **Verification:**
-- Synced [site](./site) into root output and [publish](./publish).
-- JavaScript syntax checks passed for root and [site](./site) scripts.
-- Local static server verification confirmed all eight root pages and all eight [site](./site) pages returned `200`.
+- Synced [project](./project) into [publish](./publish).
+- JavaScript syntax checks passed for [project](./project) scripts.
+- Local static server verification confirmed all eight [project](./project) pages and all eight [publish](./publish) pages returned `200`.
 
 ## [2026-06-13] - AI Root System Alignment Completed
 
@@ -39,9 +41,9 @@
 - Added a new homepage section titled `Inside the Vortiq R&D Lab`.
 - Placed it after Capability Flow and before Services.
 - Implemented a featured grid instead of a carousel so multiple work categories stay visible.
-- Added data-driven R&D lab entries in [assets/js/data.js](./assets/js/data.js).
-- Added rendering support in [assets/js/site.js](./assets/js/site.js).
-- Added responsive grid styling in [assets/css/styles.css](./assets/css/styles.css).
+- Added data-driven R&D lab entries in [assets/js/data.js](./project/assets/js/data.js).
+- Added rendering support in [assets/js/site.js](./project/assets/js/site.js).
+- Added responsive grid styling in [assets/css/styles.css](./project/assets/css/styles.css).
 - Added `rd-lab` as a future admin/media slot.
 
 **Why:**
@@ -91,10 +93,10 @@
   - Careers
   - Contact
   - Request Quote
-- Added shared CSS in [assets/css/styles.css](./assets/css/styles.css).
-- Added data-driven content in [assets/js/data.js](./assets/js/data.js).
-- Added shared rendering, navigation, animation, and form behavior in [assets/js/site.js](./assets/js/site.js).
-- Added SVG placeholder assets under [assets/images](./assets/images).
+- Added shared CSS in [assets/css/styles.css](./project/assets/css/styles.css).
+- Added data-driven content in [assets/js/data.js](./project/assets/js/data.js).
+- Added shared rendering, navigation, animation, and form behavior in [assets/js/site.js](./project/assets/js/site.js).
+- Added SVG placeholder assets under [assets/images](./project/assets/images).
 - Added [publish](./publish) folder and [vortiq-dynamics-static-site.zip](./vortiq-dynamics-static-site.zip) for temporary publishing.
 
 **Verification:**

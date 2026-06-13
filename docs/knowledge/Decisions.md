@@ -28,7 +28,7 @@ Important project decisions and their rationale.
 
 ## 2026-06-12 - Keep Content Admin-Ready Without Building Admin Yet
 
-**Decision:** Keep repeated website content data-driven in [site/assets/js/data.js](../../site/assets/js/data.js), but defer admin panel development.
+**Decision:** Keep repeated website content data-driven in [project/assets/js/data.js](../../project/assets/js/data.js), but defer admin panel development.
 
 **Context:** The user wanted the static site prepared for a future admin panel while keeping the first version focused.
 

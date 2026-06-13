@@ -9,8 +9,8 @@ The current site is a polished first version with placeholder contact details an
 ## Active Status
 
 - Static website: built
-- Canonical website source: organized under [site](../../site)
-- Root GitHub Pages output: synced from [site](../../site)
+- Canonical website source: organized under [project](../../project)
+- Deployable website output: [publish](../../publish)
 - Planning docs: created
 - AI handoff docs: created
 - AI Root System knowledge files: created and aligned
@@ -27,27 +27,26 @@ The current site is a polished first version with placeholder contact details an
 
 This is a no-build static site:
 
-- [site](../../site) is the canonical editable website source.
-- Root HTML files define the currently published GitHub Pages output.
-- [site/assets/css/styles.css](../../site/assets/css/styles.css) defines the full visual system.
-- [site/assets/js/data.js](../../site/assets/js/data.js) stores data-driven content.
-- [site/assets/js/site.js](../../site/assets/js/site.js) renders shared sections and handles behavior.
-- [site/assets/images](../../site/assets/images) stores SVG and PNG visuals.
+- [project](../../project) is the canonical editable website source.
+- [project/assets/css/styles.css](../../project/assets/css/styles.css) defines the full visual system.
+- [project/assets/js/data.js](../../project/assets/js/data.js) stores data-driven content.
+- [project/assets/js/site.js](../../project/assets/js/site.js) renders shared sections and handles behavior.
+- [project/assets/images](../../project/assets/images) stores SVG and PNG visuals.
 - [publish](../../publish) stores the clean publish package.
-- [scripts/sync-site.sh](../../scripts/sync-site.sh) syncs [site](../../site) to root output and [publish](../../publish).
+- [scripts/sync-site.sh](../../scripts/sync-site.sh) syncs [project](../../project) to [publish](../../publish).
 
 For the durable architecture record, use [Architecture.md](./Architecture.md). For high-density AI context, use [AIContext.md](./AIContext.md).
 
 ## Pages
 
-- [site/index.html](../../site/index.html)
-- [site/services.html](../../site/services.html)
-- [site/solutions.html](../../site/solutions.html)
-- [site/case-studies.html](../../site/case-studies.html)
-- [site/about.html](../../site/about.html)
-- [site/careers.html](../../site/careers.html)
-- [site/contact.html](../../site/contact.html)
-- [site/request-quote.html](../../site/request-quote.html)
+- [project/index.html](../../project/index.html)
+- [project/services.html](../../project/services.html)
+- [project/solutions.html](../../project/solutions.html)
+- [project/case-studies.html](../../project/case-studies.html)
+- [project/about.html](../../project/about.html)
+- [project/careers.html](../../project/careers.html)
+- [project/contact.html](../../project/contact.html)
+- [project/request-quote.html](../../project/request-quote.html)
 
 ## Design Contract
 
@@ -85,7 +84,7 @@ Non-negotiable contrast rules:
 
 The admin panel is not built yet.
 
-The site should remain ready to consume future admin-managed content through the data shape in [site/assets/js/data.js](../../site/assets/js/data.js).
+The site should remain ready to consume future admin-managed content through the data shape in [project/assets/js/data.js](../../project/assets/js/data.js).
 
 Expected future admin-editable groups:
 
@@ -117,8 +116,8 @@ Expected future admin-editable groups:
 
 Local verification completed after the static build:
 
-- `node --check assets/js/site.js`
-- `node --check assets/js/data.js`
+- `node --check project/assets/js/site.js`
+- `node --check project/assets/js/data.js`
 - Local static server on port `4173`
 - All eight pages returned `200`
 - Browser verification found:
@@ -144,10 +143,10 @@ Local verification completed after the static build:
 2. Replace placeholder SVGs with real work images, especially for the R&D Lab showcase.
 3. Connect quote/contact/career forms to a real backend or form service when requested.
 4. Build the admin panel later, using the existing data-driven content structure as the target shape.
-5. Consider moving GitHub Pages deployment to `publish/` through a Pages workflow if the user does not want planning docs available from the public repo root.
+5. Use a Pages workflow or equivalent publish process so GitHub Pages serves [publish](../../publish), not repository root.
 
 Durable issue, feature, and deferred-work tracking now lives in [KnownIssues.md](./KnownIssues.md), [PlannedFeatures.md](./PlannedFeatures.md), and [DeferredWork.md](./DeferredWork.md).
 
 ## Important Workflow Note
 
-When editing website source files, edit [site](../../site), run [scripts/sync-site.sh](../../scripts/sync-site.sh), then recreate [vortiq-dynamics-static-site.zip](../../vortiq-dynamics-static-site.zip) if the user needs drag-and-drop deployment.
+When editing website source files, edit [project](../../project), run [scripts/sync-site.sh](../../scripts/sync-site.sh), then recreate [vortiq-dynamics-static-site.zip](../../vortiq-dynamics-static-site.zip) if the user needs drag-and-drop deployment.

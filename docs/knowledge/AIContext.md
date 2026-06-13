@@ -7,15 +7,15 @@ Vortiq Dynamics is a completed first-version static website for a technology sol
 Current status:
 
 - Static website: built
-- Canonical website source: [site](../../site)
-- Root GitHub Pages output: synced from [site](../../site)
+- Canonical website source: [project](../../project)
+- Deployable website output: [publish](../../publish)
 - Planning docs: present
 - AI Root System documentation: present
 - Clean deploy folder: [publish](../../publish)
 - Deploy zip: [vortiq-dynamics-static-site.zip](../../vortiq-dynamics-static-site.zip)
 - GitHub repository: `robindev2026-a11y/vortex_dynamics`
 - GitHub Pages URL: `https://robindev2026-a11y.github.io/vortex_dynamics/`
-- GitHub Pages source: `main` branch, `/`
+- GitHub Pages deployment source needs confirmation after the root cleanup.
 - Latest known live verification: HTTP `200`; page contains `Vortiq Dynamics`; R&D Lab content and `drone-sensor-fusion-module.png` reference were published
 
 ## Active Priorities
@@ -43,17 +43,16 @@ Current status:
 - Resume upload is visual only until a backend or form service exists.
 - Placeholder contact details, social links, and work images remain until the user provides final assets/details.
 - Website source changes must be mirrored into [publish](../../publish) before release-ready claims.
-- Website code should be edited under [site](../../site), then synced with [scripts/sync-site.sh](../../scripts/sync-site.sh).
+- Website code should be edited under [project](../../project), then synced with [scripts/sync-site.sh](../../scripts/sync-site.sh).
 - The deploy zip should be recreated when the user needs an updated drag-and-drop package.
 
 ## Frequently Touched Areas
 
-- [site/index.html](../../site/index.html) and other [site](../../site) HTML files: editable page shells
-- [site/assets/css/styles.css](../../site/assets/css/styles.css): visual system, responsive layout, animation styles
-- [site/assets/js/data.js](../../site/assets/js/data.js): data-driven content and future admin-ready data shape
-- [site/assets/js/site.js](../../site/assets/js/site.js): rendering, navigation, animations, forms, UI behavior
-- [site/assets/images](../../site/assets/images): placeholder and real media assets
-- Root HTML files and [assets](../../assets): synced GitHub Pages output
+- [project/index.html](../../project/index.html) and other [project](../../project) HTML files: editable page shells
+- [project/assets/css/styles.css](../../project/assets/css/styles.css): visual system, responsive layout, animation styles
+- [project/assets/js/data.js](../../project/assets/js/data.js): data-driven content and future admin-ready data shape
+- [project/assets/js/site.js](../../project/assets/js/site.js): rendering, navigation, animations, forms, UI behavior
+- [project/assets/images](../../project/assets/images): placeholder and real media assets
 - [publish](../../publish): clean deploy package
 - [docs/verification](../verification): browser verification screenshots
 

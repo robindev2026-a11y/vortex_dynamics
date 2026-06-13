@@ -22,10 +22,10 @@
   - Risk: Content updates require code edits until the admin workflow exists.
   - Suggested timing: After the static site content and business details stabilize.
 
-- Item: Publish-only GitHub Pages workflow.
-  - Reason deferred: Current branch-root GitHub Pages deployment is working.
-  - Risk: Planning docs may be publicly reachable from the repository root deployment.
-  - Suggested timing: When the user wants a cleaner production deployment boundary.
+- Item: Confirm GitHub Pages workflow deployment.
+  - Reason deferred: Workflow exists in the repo, but GitHub Pages settings may need to use GitHub Actions as the source.
+  - Risk: The live GitHub Pages URL may not update until the workflow is accepted by repository settings.
+  - Suggested timing: Immediately after push.
 
 ## Refactoring Opportunities
 
@@ -34,7 +34,7 @@
   - Suggested improvement: Add a simple documented release command or script only if the user approves adding project tooling.
 
 - Area: Future content source.
-  - Problem: `assets/js/data.js` is admin-ready but still code-owned.
+  - Problem: `project/assets/js/data.js` is admin-ready but still code-owned.
   - Suggested improvement: Move content to JSON or an API-backed source when admin/CMS work begins.
 
 - Area: Image pipeline.

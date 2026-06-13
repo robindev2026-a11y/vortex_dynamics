@@ -22,10 +22,10 @@
   - Workaround: Use approved placeholders now and replace with real or generated consistent R&D imagery later.
   - Status: Open.
 
-- Issue: GitHub Pages currently publishes from repository root.
-  - Impact: Planning and documentation files may be reachable from the public Pages deployment if directly requested.
-  - Workaround: Use [publish](../../publish) for clean drag-and-drop hosting, or add a publish-only Pages workflow later.
-  - Status: Accepted for now.
+- Issue: GitHub Pages settings may need to allow GitHub Actions as the Pages source.
+  - Impact: The workflow may not publish until the repository Pages source is set to GitHub Actions.
+  - Workaround: Use [publish](../../publish) for clean hosting, or set Pages source to GitHub Actions in repository settings.
+  - Status: Open until the workflow deployment is confirmed live.
 
 ## Risks
 
@@ -37,7 +37,7 @@
 - Risk: Future admin implementation may diverge from current data shape.
   - Likelihood: Medium.
   - Impact: Extra migration work could be needed.
-  - Mitigation: Preserve stable IDs and structured content in [site/assets/js/data.js](../../site/assets/js/data.js); update [Architecture.md](./Architecture.md) when admin work begins.
+  - Mitigation: Preserve stable IDs and structured content in [project/assets/js/data.js](../../project/assets/js/data.js); update [Architecture.md](./Architecture.md) when admin work begins.
 
 - Risk: Motion or layout regressions can affect mobile usability.
   - Likelihood: Medium after visual changes.

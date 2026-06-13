@@ -10,19 +10,20 @@ The website is designed to feel engineering-first, modern, trustworthy, and inte
 - GitHub Pages URL: `https://robindev2026-a11y.github.io/vortex_dynamics/`
 - Clean deploy folder: [publish](./publish)
 - Deploy zip: [vortiq-dynamics-static-site.zip](./vortiq-dynamics-static-site.zip)
+- GitHub Pages workflow: [.github/workflows/deploy-pages.yml](./.github/workflows/deploy-pages.yml)
 
-GitHub Pages is configured from branch `main`, path `/`.
+The source website files are organized under [project](./project). The deployable website output is [publish](./publish).
 
 ## Pages
 
-- Home: [index.html](./index.html)
-- Services: [services.html](./services.html)
-- Solutions: [solutions.html](./solutions.html)
-- Case Studies: [case-studies.html](./case-studies.html)
-- About: [about.html](./about.html)
-- Careers: [careers.html](./careers.html)
-- Contact: [contact.html](./contact.html)
-- Request Quote: [request-quote.html](./request-quote.html)
+- Home: [project/index.html](./project/index.html)
+- Services: [project/services.html](./project/services.html)
+- Solutions: [project/solutions.html](./project/solutions.html)
+- Case Studies: [project/case-studies.html](./project/case-studies.html)
+- About: [project/about.html](./project/about.html)
+- Careers: [project/careers.html](./project/careers.html)
+- Contact: [project/contact.html](./project/contact.html)
+- Request Quote: [project/request-quote.html](./project/request-quote.html)
 
 ## Tech Stack
 
@@ -38,7 +39,7 @@ GitHub Pages is configured from branch `main`, path `/`.
 
 ```text
 .
-├── site/
+├── project/
 │   ├── index.html
 │   ├── services.html
 │   ├── solutions.html
@@ -48,19 +49,6 @@ GitHub Pages is configured from branch `main`, path `/`.
 │   ├── contact.html
 │   ├── request-quote.html
 │   └── assets/
-├── index.html
-├── services.html
-├── solutions.html
-├── case-studies.html
-├── about.html
-├── careers.html
-├── contact.html
-├── request-quote.html
-├── assets/
-│   ├── css/styles.css
-│   ├── js/data.js
-│   ├── js/site.js
-│   └── images/*.svg
 ├── docs/
 │   ├── knowledge/
 │   ├── planning/
@@ -75,7 +63,7 @@ GitHub Pages is configured from branch `main`, path `/`.
 └── README.md
 ```
 
-`site/` is the canonical editable website source. The root HTML files and root [assets](./assets) folder are the current GitHub Pages output because Pages is configured from branch `main`, path `/`. Use [scripts/sync-site.sh](./scripts/sync-site.sh) after editing `site/` to refresh both the root output and [publish](./publish).
+`project/` is the canonical editable website source. `publish/` is the generated deployable output. Use [scripts/sync-site.sh](./scripts/sync-site.sh) after editing `project/` to refresh [publish](./publish).
 
 ## Important Files
 
@@ -90,16 +78,13 @@ GitHub Pages is configured from branch `main`, path `/`.
 - [CURRENT_STATE.md](./docs/knowledge/CURRENT_STATE.md): Current operational state, progress, open issues, and next plan.
 - [CHANGELOG.md](./CHANGELOG.md): Recent project changes.
 - [AI_ALIGNMENT_REPORT.md](./docs/alignment/AI_ALIGNMENT_REPORT.md): AI Root System alignment report.
-- [assets/js/data.js](./assets/js/data.js): Data-driven content and future admin-ready data shape.
-- [assets/js/site.js](./assets/js/site.js): Rendering, navigation, animations, forms, and UI behavior.
-- [assets/css/styles.css](./assets/css/styles.css): Full design system and responsive layout.
-- [site/assets/js/data.js](./site/assets/js/data.js): Canonical editable data file.
-- [site/assets/js/site.js](./site/assets/js/site.js): Canonical editable behavior file.
-- [site/assets/css/styles.css](./site/assets/css/styles.css): Canonical editable stylesheet.
+- [project/assets/js/data.js](./project/assets/js/data.js): Canonical editable data file.
+- [project/assets/js/site.js](./project/assets/js/site.js): Canonical editable behavior file.
+- [project/assets/css/styles.css](./project/assets/css/styles.css): Canonical editable stylesheet.
 
 ## Local Preview
 
-Open [index.html](./index.html) directly in a browser, or run a local static server:
+Open [project/index.html](./project/index.html) directly in a browser, or run a local static server:
 
 ```bash
 python3 -m http.server 4173
@@ -108,30 +93,30 @@ python3 -m http.server 4173
 Then open:
 
 ```text
-http://127.0.0.1:4173/
+http://127.0.0.1:4173/project/
 ```
 
-To preview canonical source directly:
+To preview deployable output:
 
 ```text
-http://127.0.0.1:4173/site/
+http://127.0.0.1:4173/publish/
 ```
 
 ## Maintenance
 
-Edit website files under [site](./site). Then sync the deploy outputs:
+Edit website files under [project](./project). Then sync the deploy outputs:
 
 ```bash
 ./scripts/sync-site.sh
 ```
 
-This updates the root GitHub Pages output and [publish](./publish) from the same source.
+This updates [publish](./publish) from the same source.
 
 ## Publishing
 
 For drag-and-drop hosting, use the [publish](./publish) folder or [vortiq-dynamics-static-site.zip](./vortiq-dynamics-static-site.zip).
 
-For GitHub Pages, the current repo is already configured to publish from `main` branch `/`.
+For GitHub Pages, [.github/workflows/deploy-pages.yml](./.github/workflows/deploy-pages.yml) deploys the contents of [publish](./publish).
 
 ## AI Agent Instructions
 
@@ -141,7 +126,7 @@ Before making changes, read [AI.md](./AI.md). This project inherits the AI Root 
 2. Check recent changelog.
 3. Make the smallest correct change.
 4. Update docs if the project state changes.
-5. Edit `site/` first, then run `./scripts/sync-site.sh`.
+5. Edit `project/` first, then run `./scripts/sync-site.sh`.
 
 ## Current Known Placeholders
 

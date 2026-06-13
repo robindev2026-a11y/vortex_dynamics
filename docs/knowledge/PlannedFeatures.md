@@ -20,7 +20,7 @@
 - Feature: Build an admin panel or CMS-backed content workflow.
   - Reason: Future editors should manage navigation, hero, services, media, case studies, FAQ, careers, contact details, and footer links without editing source files.
   - Priority: Medium to long-term.
-  - Notes: Preserve the existing content shape in [site/assets/js/data.js](../../site/assets/js/data.js) as the likely target schema.
+  - Notes: Preserve the existing content shape in [project/assets/js/data.js](../../project/assets/js/data.js) as the likely target schema.
 
 - Feature: Add dynamic image/media processing for ambient backgrounds.
   - Reason: Current ambient treatment duplicates images visually; later tooling could extract dominant colors and generate richer section backgrounds.
@@ -30,7 +30,7 @@
 ## Ideas Accepted For Later
 
 - Idea: Move GitHub Pages deployment to a dedicated clean publish workflow.
-  - Why later: Current GitHub Pages source from `main` branch `/` works, but exposes planning docs in the public repository root.
+  - Why later: The source/output structure is now clean, but Pages deployment may still need settings or workflow confirmation.
   - Notes: Consider a Pages workflow that publishes only [publish](../../publish) or a generated artifact.
 
 - Idea: Replace static deploy zip manually when release packaging is needed.

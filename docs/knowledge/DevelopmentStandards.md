@@ -3,7 +3,7 @@
 ## Coding Style
 
 - Use plain HTML, CSS, and vanilla JavaScript unless the user approves a different stack.
-- Treat [site](../../site) as the canonical editable website source.
+- Treat [project](../../project) as the canonical editable website source.
 - Keep JavaScript readable and dependency-free.
 - Keep repeated content data-driven where practical.
 - Use semantic HTML, descriptive labels, accessible buttons, and clear heading order.
@@ -19,11 +19,10 @@
 
 ## Folder Structure
 
-- [site](../../site): canonical editable website source.
-- Root HTML files and [assets](../../assets): GitHub Pages output synced from [site](../../site).
-- [site/assets/css](../../site/assets/css): shared styling only.
-- [site/assets/js](../../site/assets/js): shared data and behavior.
-- [site/assets/images](../../site/assets/images): website media assets.
+- [project](../../project): canonical editable website source.
+- [project/assets/css](../../project/assets/css): shared styling only.
+- [project/assets/js](../../project/assets/js): shared data and behavior.
+- [project/assets/images](../../project/assets/images): website media assets.
 - [publish](../../publish): clean deploy package.
 - [docs/verification](../verification): screenshots and verification artifacts.
 - [docs/knowledge](./): AI Root System knowledge files.
@@ -36,10 +35,8 @@
 
 For non-trivial website changes, run or perform the strongest practical subset:
 
-- `node --check assets/js/site.js`
-- `node --check assets/js/data.js`
-- `node --check site/assets/js/site.js`
-- `node --check site/assets/js/data.js`
+- `node --check project/assets/js/site.js`
+- `node --check project/assets/js/data.js`
 - Static server page load checks
 - Browser checks for desktop and mobile layouts
 - No console/page errors
@@ -59,10 +56,10 @@ For non-trivial website changes, run or perform the strongest practical subset:
 
 - GitHub repository: `robindev2026-a11y/vortex_dynamics`
 - GitHub Pages URL: `https://robindev2026-a11y.github.io/vortex_dynamics/`
-- GitHub Pages source: `main` branch, `/`
+- GitHub Pages workflow: [.github/workflows/deploy-pages.yml](../../.github/workflows/deploy-pages.yml)
 - Clean upload package: [publish](../../publish)
-- Website source lives in [site](../../site).
-- When website source files change, run `./scripts/sync-site.sh` to sync root output and [publish](../../publish).
+- Website source lives in [project](../../project).
+- When website source files change, run `./scripts/sync-site.sh` to sync [publish](../../publish).
 - Recreate [vortiq-dynamics-static-site.zip](../../vortiq-dynamics-static-site.zip) when the user needs an updated drag-and-drop package.
 
 ## Commits
@@ -74,7 +71,7 @@ For non-trivial website changes, run or perform the strongest practical subset:
 ## AI Workflow Rules
 
 - Start with [AI.md](../../AI.md), then follow the linked knowledge files.
-- Edit website code under [site](../../site), not the root output, unless deliberately patching deployment output.
+- Edit website code under [project](../../project), then regenerate [publish](../../publish).
 - Do not rely on chat history for project facts that should live in documentation.
 - Preserve useful content from older docs before deleting or replacing anything.
 - Keep project-specific knowledge in this project.

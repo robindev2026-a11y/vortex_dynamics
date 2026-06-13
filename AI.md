@@ -42,8 +42,7 @@ Then read task-specific source documents as needed:
 
 This project owns:
 
-- Canonical website source files under [site](./site)
-- Root HTML/assets as the GitHub Pages output synced from [site](./site)
+- Canonical website source files under [project](./project)
 - Clean publish package under [publish](./publish)
 - Project-specific planning, architecture, standards, issues, decisions, and alignment docs under [docs](./docs)
 - Maintenance scripts under [scripts](./scripts)
@@ -61,8 +60,8 @@ This project does not currently own:
 - Do not rename the brand from `Vortiq Dynamics`.
 - Do not treat `vortex_dynamics` as the brand; it is only the GitHub repository name.
 - Do not introduce a framework, build step, package manager, backend, or dependency without user approval.
-- Treat [site](./site) as the editable website source.
-- After website source changes, run `./scripts/sync-site.sh` to sync [site](./site) into the repository root and [publish](./publish).
+- Treat [project](./project) as the editable website source.
+- After website source changes, run `./scripts/sync-site.sh` to sync [project](./project) into [publish](./publish).
 - Keep project-specific knowledge inside this project.
 - Promote reusable lessons only as recommendations unless the user asks to update Obsidian or the root framework.
 
@@ -83,10 +82,8 @@ After significant work:
 
 For non-trivial website changes, verify at minimum:
 
-- `node --check assets/js/site.js`
-- `node --check assets/js/data.js`
-- `node --check site/assets/js/site.js`
-- `node --check site/assets/js/data.js`
+- `node --check project/assets/js/site.js`
+- `node --check project/assets/js/data.js`
 - Local static server test when practical
 - Desktop and mobile visual checks when layout, animation, or responsive behavior changes
 - Form success behavior when quote, contact, or career forms change
