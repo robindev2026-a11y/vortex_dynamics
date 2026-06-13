@@ -9,10 +9,13 @@ The current site is a polished first version with placeholder contact details an
 ## Active Status
 
 - Static website: built
+- Canonical website source: organized under [site](../../site)
+- Root GitHub Pages output: synced from [site](../../site)
 - Planning docs: created
 - AI handoff docs: created
-- Clean deploy folder: created at [publish](./publish)
-- Deploy zip: created at [vortiq-dynamics-static-site.zip](./vortiq-dynamics-static-site.zip)
+- AI Root System knowledge files: created and aligned
+- Clean deploy folder: created at [publish](../../publish)
+- Deploy zip: created at [vortiq-dynamics-static-site.zip](../../vortiq-dynamics-static-site.zip)
 - GitHub repo: `robindev2026-a11y/vortex_dynamics`
 - GitHub Pages: enabled from `main` branch `/`
 - GitHub Pages build: API reported `built`
@@ -24,23 +27,27 @@ The current site is a polished first version with placeholder contact details an
 
 This is a no-build static site:
 
-- Root HTML files define pages.
-- [assets/css/styles.css](./assets/css/styles.css) defines the full visual system.
-- [assets/js/data.js](./assets/js/data.js) stores data-driven content.
-- [assets/js/site.js](./assets/js/site.js) renders shared sections and handles behavior.
-- [assets/images](./assets/images) stores SVG placeholder visuals.
-- [publish](./publish) stores the clean publish package.
+- [site](../../site) is the canonical editable website source.
+- Root HTML files define the currently published GitHub Pages output.
+- [site/assets/css/styles.css](../../site/assets/css/styles.css) defines the full visual system.
+- [site/assets/js/data.js](../../site/assets/js/data.js) stores data-driven content.
+- [site/assets/js/site.js](../../site/assets/js/site.js) renders shared sections and handles behavior.
+- [site/assets/images](../../site/assets/images) stores SVG and PNG visuals.
+- [publish](../../publish) stores the clean publish package.
+- [scripts/sync-site.sh](../../scripts/sync-site.sh) syncs [site](../../site) to root output and [publish](../../publish).
+
+For the durable architecture record, use [Architecture.md](./Architecture.md). For high-density AI context, use [AIContext.md](./AIContext.md).
 
 ## Pages
 
-- [index.html](./index.html)
-- [services.html](./services.html)
-- [solutions.html](./solutions.html)
-- [case-studies.html](./case-studies.html)
-- [about.html](./about.html)
-- [careers.html](./careers.html)
-- [contact.html](./contact.html)
-- [request-quote.html](./request-quote.html)
+- [site/index.html](../../site/index.html)
+- [site/services.html](../../site/services.html)
+- [site/solutions.html](../../site/solutions.html)
+- [site/case-studies.html](../../site/case-studies.html)
+- [site/about.html](../../site/about.html)
+- [site/careers.html](../../site/careers.html)
+- [site/contact.html](../../site/contact.html)
+- [site/request-quote.html](../../site/request-quote.html)
 
 ## Design Contract
 
@@ -78,7 +85,7 @@ Non-negotiable contrast rules:
 
 The admin panel is not built yet.
 
-The site should remain ready to consume future admin-managed content through the data shape in [assets/js/data.js](./assets/js/data.js).
+The site should remain ready to consume future admin-managed content through the data shape in [site/assets/js/data.js](../../site/assets/js/data.js).
 
 Expected future admin-editable groups:
 
@@ -126,10 +133,10 @@ Local verification completed after the static build:
   - No console/page errors
 - R&D Lab verification confirmed no horizontal scroll on desktop or mobile.
 - Live GitHub Pages verification confirmed the R&D Lab section text and data-file image reference are published.
-- Desktop screenshot: [verification/home-desktop-revealed.png](./verification/home-desktop-revealed.png)
-- Mobile screenshot: [verification/home-mobile-revealed.png](./verification/home-mobile-revealed.png)
-- R&D Lab desktop screenshot: [verification/home-rd-lab-desktop.png](./verification/home-rd-lab-desktop.png)
-- R&D Lab mobile screenshot: [verification/home-rd-lab-mobile.png](./verification/home-rd-lab-mobile.png)
+- Desktop screenshot: [docs/verification/home-desktop-revealed.png](../verification/home-desktop-revealed.png)
+- Mobile screenshot: [docs/verification/home-mobile-revealed.png](../verification/home-mobile-revealed.png)
+- R&D Lab desktop screenshot: [docs/verification/home-rd-lab-desktop.png](../verification/home-rd-lab-desktop.png)
+- R&D Lab mobile screenshot: [docs/verification/home-rd-lab-mobile.png](../verification/home-rd-lab-mobile.png)
 
 ## Open Issues / Next Plan
 
@@ -139,6 +146,8 @@ Local verification completed after the static build:
 4. Build the admin panel later, using the existing data-driven content structure as the target shape.
 5. Consider moving GitHub Pages deployment to `publish/` through a Pages workflow if the user does not want planning docs available from the public repo root.
 
+Durable issue, feature, and deferred-work tracking now lives in [KnownIssues.md](./KnownIssues.md), [PlannedFeatures.md](./PlannedFeatures.md), and [DeferredWork.md](./DeferredWork.md).
+
 ## Important Workflow Note
 
-When editing website source files, also update matching files inside [publish](./publish), then recreate [vortiq-dynamics-static-site.zip](./vortiq-dynamics-static-site.zip) if the user needs drag-and-drop deployment.
+When editing website source files, edit [site](../../site), run [scripts/sync-site.sh](../../scripts/sync-site.sh), then recreate [vortiq-dynamics-static-site.zip](../../vortiq-dynamics-static-site.zip) if the user needs drag-and-drop deployment.

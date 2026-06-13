@@ -1,0 +1,42 @@
+# Deferred Work
+
+## Deferred Items
+
+- Item: Real backend or form provider for quote, contact, and career forms.
+  - Reason deferred: First version is static and no backend/form service has been selected.
+  - Risk: Users may think forms submit real inquiries if this is not clearly handled in deployment context.
+  - Suggested timing: Before relying on the website for live lead capture or hiring intake.
+
+- Item: Final contact details and social links.
+  - Reason deferred: The user has not provided final values.
+  - Risk: Placeholder details can reduce credibility or misroute users if left in production.
+  - Suggested timing: Before public business launch.
+
+- Item: Real work images and R&D Lab media.
+  - Reason deferred: Real project images are not available yet.
+  - Risk: Placeholder media makes the company feel less proven.
+  - Suggested timing: As soon as real or approved generated media exists.
+
+- Item: Admin panel implementation.
+  - Reason deferred: The first milestone was the static website, with admin-readiness only.
+  - Risk: Content updates require code edits until the admin workflow exists.
+  - Suggested timing: After the static site content and business details stabilize.
+
+- Item: Publish-only GitHub Pages workflow.
+  - Reason deferred: Current branch-root GitHub Pages deployment is working.
+  - Risk: Planning docs may be publicly reachable from the repository root deployment.
+  - Suggested timing: When the user wants a cleaner production deployment boundary.
+
+## Refactoring Opportunities
+
+- Area: Deployment package synchronization.
+  - Problem: Source files and [publish](../../publish) can drift if updates are copied manually.
+  - Suggested improvement: Add a simple documented release command or script only if the user approves adding project tooling.
+
+- Area: Future content source.
+  - Problem: `assets/js/data.js` is admin-ready but still code-owned.
+  - Suggested improvement: Move content to JSON or an API-backed source when admin/CMS work begins.
+
+- Area: Image pipeline.
+  - Problem: Placeholders and generated media need consistency across site, Instagram, and LinkedIn.
+  - Suggested improvement: Build a repeatable media generation and optimization workflow based on [TONY_IMAGE_GENERATION_GUIDE.md](../media/TONY_IMAGE_GENERATION_GUIDE.md).
