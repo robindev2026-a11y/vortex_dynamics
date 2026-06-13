@@ -110,9 +110,8 @@ window.VORTIQ_DATA = {
     }
   ],
   techStack: [
-    { title: "Frontend", items: ["React", "Next.js", "HTML", "CSS"] },
-    { title: "Backend", items: ["Node.js", "Python", "APIs"] },
-    { title: "Cloud", items: ["AWS", "Azure", "Google Cloud", "Cloudflare"] },
+    
+    { title: "Cloud Enterprise solutions", items: ["AWS", "Azure", "Google Cloud", "Cloudflare"] },
     { title: "IoT/Embedded", items: ["RTOS", "IoT", "Hardware", "PCB Designing", "Firmware"] },
     { title: "Mobile", items: ["Flutter", "React Native", "Android"] },
     { title: "AI/Edge AI", items: ["Edge AI Products", "Autonomous Navigation", "ADAS"] }
