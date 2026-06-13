@@ -210,23 +210,119 @@
     });
   }
 
-  function renderGallery() {
-    document.querySelectorAll("[data-render='gallery']").forEach((mount) => {
-      mount.innerHTML = data.gallery
-        .map(
-          (item, index) => `
-            <article class="gallery-item reveal" style="--delay:${index * 80}ms">
-              <div class="ambient-media">
-                <img class="ambient-bg" src="${item.image}" alt="" aria-hidden="true">
-                <img class="ambient-main" src="${item.image}" alt="${item.alt}">
-              </div>
-              <p>${item.category}</p>
-              <h3>${item.title}</h3>
-            </article>
-          `
-        )
-        .join("");
+  function initGalleryCarousel() {
+    const carousel = document.querySelector("[data-render='gallery-carousel']");
+    if (!carousel) return;
+
+    carousel.innerHTML = `
+      <div class="gallery-carousel">
+        <div class="carousel-track">
+          ${data.gallery
+            .map(
+              (item, index) => `
+                <div class="carousel-slide ${index === 0 ? "active" : ""}">
+                  <div class="ambient-media">
+                    <img class="ambient-bg" src="${item.image}" alt="" aria-hidden="true">
+                    <img class="ambient-main" src="${item.image}" alt="${escapeHtml(item.alt)}">
+                  </div>
+                  <div class="carousel-info">
+                    <span class="carousel-category">${escapeHtml(item.category)}</span>
+                    <h3 class="carousel-title">${escapeHtml(item.title)}</h3>
+                    <p class="carousel-description">${escapeHtml(item.description)}</p>
+                  </div>
+                </div>
+              `
+            )
+            .join("")}
+        </div>
+        <div class="carousel-nav">
+          <button class="carousel-prev" type="button" aria-label="Previous slide">
+            <svg viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"></path></svg>
+          </button>
+          <button class="carousel-next" type="button" aria-label="Next slide">
+            <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"></path></svg>
+          </button>
+        </div>
+        <div class="carousel-dots">
+          ${data.gallery
+            .map(
+              (_, index) => `
+                <button class="carousel-dot ${index === 0 ? "active" : ""}" data-slide="${index}" type="button" aria-label="Go to slide ${index + 1}"></button>
+              `
+            )
+            .join("")}
+        </div>
+      </div>
+    `;
+
+    const slides = carousel.querySelectorAll(".carousel-slide");
+    const dots = carousel.querySelectorAll(".carousel-dot");
+    const prevBtn = carousel.querySelector(".carousel-prev");
+    const nextBtn = carousel.querySelector(".carousel-next");
+    if (!slides.length) return;
+
+    let currentIndex = 0;
+    let timer = null;
+
+    function showSlide(index) {
+      slides[currentIndex].classList.remove("active");
+      dots[currentIndex].classList.remove("active");
+      currentIndex = (index + slides.length) % slides.length;
+      slides[currentIndex].classList.add("active");
+      dots[currentIndex].classList.add("active");
+      initAmbientMediaInside(slides[currentIndex]);
+    }
+
+    function nextSlide() {
+      showSlide(currentIndex + 1);
+    }
+
+    function prevSlide() {
+      showSlide(currentIndex - 1);
+    }
+
+    function startTimer() {
+      stopTimer();
+      timer = window.setInterval(nextSlide, 5000);
+    }
+
+    function stopTimer() {
+      if (timer) {
+        window.clearInterval(timer);
+        timer = null;
+      }
+    }
+
+    function initAmbientMediaInside(slide) {
+      const main = slide.querySelector(".ambient-main");
+      const bg = slide.querySelector(".ambient-bg");
+      if (main && bg && !bg.getAttribute("src")) {
+        bg.setAttribute("src", main.getAttribute("src"));
+      }
+    }
+
+    initAmbientMediaInside(slides[0]);
+
+    prevBtn.addEventListener("click", () => {
+      prevSlide();
+      startTimer();
     });
+    nextBtn.addEventListener("click", () => {
+      nextSlide();
+      startTimer();
+    });
+
+    dots.forEach((dot) => {
+      dot.addEventListener("click", () => {
+        showSlide(parseInt(dot.dataset.slide, 10));
+        startTimer();
+      });
+    });
+
+    carousel.addEventListener("mouseenter", stopTimer);
+    carousel.addEventListener("mouseleave", startTimer);
+
+    startTimer();
   }
 
   function renderFaq() {
@@ -370,7 +466,7 @@
   renderProcess();
   renderTechStack();
   renderCaseStudies();
-  renderGallery();
+  initGalleryCarousel();
   renderFaq();
   initAmbientMedia();
   initAdminSchema();

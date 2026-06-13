@@ -15,7 +15,6 @@ window.VORTIQ_DATA = {
     { label: "Home", href: "index.html", id: "home" },
     { label: "Services", href: "services.html", id: "services" },
     { label: "Solutions", href: "solutions.html", id: "solutions" },
-    { label: "Case Studies", href: "case-studies.html", id: "case-studies" },
     { label: "About", href: "about.html", id: "about" },
     { label: "Careers", href: "careers.html", id: "careers" },
     { label: "Contact", href: "contact.html", id: "contact" }
@@ -190,22 +189,39 @@ window.VORTIQ_DATA = {
   ],
   gallery: [
     {
-      title: "Embedded Hardware Prototype",
+      title: "Electronics Design Bench",
       category: "Electronics",
-      image: "assets/images/iot-embedded.svg",
-      alt: "Placeholder embedded hardware prototype visual"
+      image: "assets/images/gallery-electronics-workbench.jpg",
+      description: "Close-up of our hardware prototyping workspace, featuring diagnostic equipment, multimeters, and high-frequency oscilloscopes for PCB signal analysis.",
+      alt: "Electronics prototyping workbench with custom circuit boards and testing tools"
     },
     {
-      title: "Cloud Operations Dashboard",
-      category: "Cloud",
-      image: "assets/images/cloud-dashboard.svg",
-      alt: "Placeholder cloud dashboard visual"
+      title: "PCB Testing & Calibration",
+      category: "Hardware",
+      image: "assets/images/gallery-pcb-calibration.jpg",
+      description: "Development board testing. Engineers calibrate sensor communication interfaces and flash custom firmware onto microcontrollers under HIL simulations.",
+      alt: "Close-up of custom electronic development board connected to multimeters and debugger lines"
     },
     {
-      title: "Mobile Field Interface",
-      category: "Mobile",
-      image: "assets/images/mobile-ui.svg",
-      alt: "Placeholder mobile app interface visual"
+      title: "IoT Smart Soil Telemetry",
+      category: "IoT Systems",
+      image: "assets/images/gallery-iot-plant.jpg",
+      description: "Live prototyping of agricultural telemetry nodes, measuring soil parameters, moisture, and temperature dynamically over low-power wireless protocols.",
+      alt: "Potted green plant with custom sensor probe connected to an electronics board on a wooden desk"
+    },
+    {
+      title: "Greenhouse Sensor Network",
+      category: "Greenhouse Automation",
+      image: "assets/images/gallery-greenhouse-deployment.jpg",
+      description: "Full-scale deployment of our agricultural IoT ecosystem. Weather sensors, soil telemetry, and camera feeds monitor crop health and environmental parameters.",
+      alt: "Greenhouse interior showing automated weather station modules and sensor probes installed next to crop rows"
+    },
+    {
+      title: "Automated Drip Irrigation Node",
+      category: "Automation Systems",
+      image: "assets/images/gallery-greenhouse-irrigation.jpg",
+      description: "Greenhouse automation actuators controlling water distribution, pressure lines, and nutrient dosing triggers, integrated with real-time cloud dashboard feeds.",
+      alt: "Actuator and water filters installed on PVC piping inside a greenhouse row with sensor probes"
     }
   ],
   faqs: [
