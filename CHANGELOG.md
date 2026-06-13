@@ -1,5 +1,38 @@
 # CHANGELOG - Vortiq Dynamics
 
+## [2026-06-13] - Project Structure Organized
+
+**What changed:**
+- Added [site](./site) as the canonical editable website source.
+- Added [scripts/sync-site.sh](./scripts/sync-site.sh) to sync [site](./site) into the repository root and [publish](./publish).
+- Moved AI Root System knowledge files into [docs/knowledge](./docs/knowledge).
+- Moved planning docs into [docs/planning](./docs/planning), media guidance into [docs/media](./docs/media), alignment reports into [docs/alignment](./docs/alignment), and verification screenshots into [docs/verification](./docs/verification).
+- Updated [AI.md](./AI.md), [README.md](./README.md), and knowledge docs to describe the new structure.
+- Refreshed [vortiq-dynamics-static-site.zip](./vortiq-dynamics-static-site.zip) from [publish](./publish).
+
+**Why:**
+- The project needed a maintainable folder structure while preserving the current GitHub Pages root deployment.
+
+**Verification:**
+- Synced [site](./site) into root output and [publish](./publish).
+- JavaScript syntax checks passed for root and [site](./site) scripts.
+- Local static server verification confirmed all eight root pages and all eight [site](./site) pages returned `200`.
+
+## [2026-06-13] - AI Root System Alignment Completed
+
+**What changed:**
+- Updated [AI.md](./AI.md) into a short AI bootloader that references the AI Root System.
+- Added [AIContext.md](./docs/knowledge/AIContext.md), [Architecture.md](./docs/knowledge/Architecture.md), [PlannedFeatures.md](./docs/knowledge/PlannedFeatures.md), [DeferredWork.md](./docs/knowledge/DeferredWork.md), [Decisions.md](./docs/knowledge/Decisions.md), [KnownIssues.md](./docs/knowledge/KnownIssues.md), and [DevelopmentStandards.md](./docs/knowledge/DevelopmentStandards.md).
+- Added [AI_ALIGNMENT_REPORT.md](./docs/alignment/AI_ALIGNMENT_REPORT.md).
+- Updated [README.md](./README.md) and [CURRENT_STATE.md](./docs/knowledge/CURRENT_STATE.md) to point future agents to the aligned documentation structure.
+
+**Why:**
+- Future AI agents need to understand the project from durable project documentation without relying on chat history.
+
+**Verification:**
+- Validated required AI Root System knowledge files are present or clearly covered.
+- Preserved older planning and state documents while migrating their useful knowledge into dedicated root-system files.
+
 ## [2026-06-12] - Homepage R&D Lab Showcase Added
 
 **What changed:**
@@ -25,7 +58,7 @@
 
 **What changed:**
 - Added [AI.md](./AI.md) as the mandatory starting point for future AI agents.
-- Added [CURRENT_STATE.md](./CURRENT_STATE.md) to capture current project status, deployment state, architecture, and next plan.
+- Added [CURRENT_STATE.md](./docs/knowledge/CURRENT_STATE.md) to capture current project status, deployment state, architecture, and next plan.
 - Added this changelog to track project changes and decisions.
 - Replaced the placeholder README with a project-focused [README.md](./README.md).
 - Adapted the living documentation structure from the user's CoffeeCall project without claiming CoffeeCall-only tooling exists here.
@@ -76,18 +109,18 @@
   - Quote form success behavior
   - Mobile menu behavior
   - No console/page errors
-- Desktop and mobile screenshots saved under [verification](./verification).
+- Desktop and mobile screenshots saved under [docs/verification](./docs/verification).
 
 ## [2026-06-12] - Planning Docs Created And Updated
 
 **What changed:**
 - Created and updated project planning docs:
-  - [WEBSITE_PLAN.md](./WEBSITE_PLAN.md)
-  - [PROMPT.md](./PROMPT.md)
-  - [CONTENT_OUTLINE.md](./CONTENT_OUTLINE.md)
-  - [DESIGN_DIRECTION.md](./DESIGN_DIRECTION.md)
-  - [FUNCTIONAL_REQUIREMENTS.md](./FUNCTIONAL_REQUIREMENTS.md)
-  - [ANIMATION_AND_ADMIN_PLAN.md](./ANIMATION_AND_ADMIN_PLAN.md)
+  - [WEBSITE_PLAN.md](./docs/planning/WEBSITE_PLAN.md)
+  - [PROMPT.md](./docs/planning/PROMPT.md)
+  - [CONTENT_OUTLINE.md](./docs/planning/CONTENT_OUTLINE.md)
+  - [DESIGN_DIRECTION.md](./docs/planning/DESIGN_DIRECTION.md)
+  - [FUNCTIONAL_REQUIREMENTS.md](./docs/planning/FUNCTIONAL_REQUIREMENTS.md)
+  - [ANIMATION_AND_ADMIN_PLAN.md](./docs/planning/ANIMATION_AND_ADMIN_PLAN.md)
 - Confirmed design direction:
   - Abstract PCB/cloud animation
   - Typewriter hero text

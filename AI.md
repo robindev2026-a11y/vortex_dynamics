@@ -1,98 +1,96 @@
-# Vortiq Dynamics AI Context Management
+# Vortiq Dynamics AI Entry Point
 
-This file is the required starting point for any AI agent working on this project. It exists to preserve context, prevent instruction drift, and keep the website aligned with the Vortiq Dynamics direction.
+This project inherits the AI Root System at:
+
+`/Users/robingeorge/Documents/Projects/AI-Root-System`
+
+Use this file as the bootloader for AI work. It is intentionally short; durable project memory lives in the linked knowledge files.
+
+## Project Purpose
+
+Vortiq Dynamics is a static business website for a technology solutions company offering IoT, cloud, web, mobile, embedded systems, websites, and edge AI solutions.
+
+The site should feel engineering-first, modern, trustworthy, practical, and ready for future admin-managed content.
 
 ## Mandatory Pre-Task Protocol
 
-Before starting any task, read these files in order:
+Before significant work, read these files in order:
 
-1. [CURRENT_STATE.md](./CURRENT_STATE.md): Current project status, architecture, active plan, deployment state, and known issues.
-2. [CHANGELOG.md](./CHANGELOG.md): Recent changes and decisions.
-3. [README.md](./README.md): Project overview, structure, run instructions, and deployment notes.
+1. [AI.md](./AI.md)
+2. [AIContext.md](./docs/knowledge/AIContext.md)
+3. [Architecture.md](./docs/knowledge/Architecture.md)
+4. [DevelopmentStandards.md](./docs/knowledge/DevelopmentStandards.md)
+5. [KnownIssues.md](./docs/knowledge/KnownIssues.md)
+6. [PlannedFeatures.md](./docs/knowledge/PlannedFeatures.md)
+7. [DeferredWork.md](./docs/knowledge/DeferredWork.md)
+8. [Decisions.md](./docs/knowledge/Decisions.md)
+9. [CHANGELOG.md](./CHANGELOG.md)
 
-Then read only the planning docs relevant to the task:
+Then read task-specific source documents as needed:
 
-- [WEBSITE_PLAN.md](./WEBSITE_PLAN.md): Page structure, audience, conversion strategy, and site requirements.
-- [DESIGN_DIRECTION.md](./DESIGN_DIRECTION.md): Palette, typography, layout, image, and animation direction.
-- [FUNCTIONAL_REQUIREMENTS.md](./FUNCTIONAL_REQUIREMENTS.md): Required pages, forms, responsive behavior, accessibility, performance, and admin-ready data expectations.
-- [CONTENT_OUTLINE.md](./CONTENT_OUTLINE.md): Page copy, section order, FAQ answers, and content blocks.
-- [ANIMATION_AND_ADMIN_PLAN.md](./ANIMATION_AND_ADMIN_PLAN.md): Abstract PCB/cloud animation plan, ambient image treatment, and future admin data model.
-- [PROMPT.md](./PROMPT.md): High-level static website generation prompt.
+- [README.md](./README.md): overview, run instructions, deployment notes
+- [CURRENT_STATE.md](./docs/knowledge/CURRENT_STATE.md): latest operational snapshot and verification status
+- [WEBSITE_PLAN.md](./docs/planning/WEBSITE_PLAN.md): page strategy, audience, conversion goals
+- [DESIGN_DIRECTION.md](./docs/planning/DESIGN_DIRECTION.md): visual system, palette, motion, imagery
+- [FUNCTIONAL_REQUIREMENTS.md](./docs/planning/FUNCTIONAL_REQUIREMENTS.md): page, form, accessibility, performance requirements
+- [CONTENT_OUTLINE.md](./docs/planning/CONTENT_OUTLINE.md): page copy and section-level content
+- [ANIMATION_AND_ADMIN_PLAN.md](./docs/planning/ANIMATION_AND_ADMIN_PLAN.md): motion and future admin-readiness plan
+- [TONY_IMAGE_GENERATION_GUIDE.md](./docs/media/TONY_IMAGE_GENERATION_GUIDE.md): realistic R&D room media direction
+- [PROMPT.md](./docs/planning/PROMPT.md): original static website generation prompt
 
-## Mandatory Post-Task Protocol
+## Project Boundaries
 
-After any task that changes project behavior, structure, deployment, visual direction, content model, or status:
+This project owns:
 
-1. Append a dated entry to [CHANGELOG.md](./CHANGELOG.md).
-2. Update [CURRENT_STATE.md](./CURRENT_STATE.md) so the next AI sees the real current state.
-3. If website source files changed, update the deploy package in [publish](./publish) before saying the project is ready to publish.
-4. If visual or interactive behavior changed, run the strongest available verification and record it in [CURRENT_STATE.md](./CURRENT_STATE.md) or the final response.
+- Canonical website source files under [site](./site)
+- Root HTML/assets as the GitHub Pages output synced from [site](./site)
+- Clean publish package under [publish](./publish)
+- Project-specific planning, architecture, standards, issues, decisions, and alignment docs under [docs](./docs)
+- Maintenance scripts under [scripts](./scripts)
 
-## Project Identity Rules
+This project does not currently own:
 
-- The brand is **Vortiq Dynamics**.
-- Do not rename the brand to `vortex_dynamics`; that is only the current GitHub repository name.
-- The website presents Vortiq Dynamics as an engineering-first technology partner for IoT, cloud, web, mobile, embedded systems, and edge AI.
-- The tone should be confident, professional, modern, technical, and practical.
+- A production backend
+- A real admin panel
+- Form submission infrastructure
+- Final company contact details, social links, or real work imagery
+- Reusable global framework rules, unless explicitly promoted to the AI Root System
 
-## Design Rules
+## Mandatory Rules
 
-- Use the validated green/teal palette from [DESIGN_DIRECTION.md](./DESIGN_DIRECTION.md).
-- Use deep charcoal text `#0B1F23` on bright green CTA buttons `#3ED16F`.
-- Do not use white text on bright green CTA buttons.
-- Keep yellow and pink as small accents only.
-- Keep all seven service cards equally visible.
-- Preserve the abstract PCB/cloud hero direction and typewriter effect unless the user explicitly changes it.
-- Preserve the ambient image treatment: clear main image, blurred enlarged duplicate behind it.
-- Respect `prefers-reduced-motion`.
-- Avoid heavy animation libraries unless the user explicitly approves them.
+- Do not rename the brand from `Vortiq Dynamics`.
+- Do not treat `vortex_dynamics` as the brand; it is only the GitHub repository name.
+- Do not introduce a framework, build step, package manager, backend, or dependency without user approval.
+- Treat [site](./site) as the editable website source.
+- After website source changes, run `./scripts/sync-site.sh` to sync [site](./site) into the repository root and [publish](./publish).
+- Keep project-specific knowledge inside this project.
+- Promote reusable lessons only as recommendations unless the user asks to update Obsidian or the root framework.
 
-## Engineering Rules
+## Post-Task Protocol
 
-- This is a static website built with plain HTML, CSS, and JavaScript.
-- Do not introduce a framework, build step, or dependency manager unless the user approves it.
-- Primary source files live at the project root and under `assets/`.
-- Data-driven content lives in [assets/js/data.js](./assets/js/data.js).
-- Shared behavior lives in [assets/js/site.js](./assets/js/site.js).
-- Shared styling lives in [assets/css/styles.css](./assets/css/styles.css).
-- Repeated content should remain data-driven where practical so a future admin panel can provide the same shape of data.
-- Keep form behavior static unless the user asks to connect a real backend or form service.
-- Do not hardcode final phone, email, address, or social links until the user provides them.
+After significant work:
 
-## Deployment Rules
+1. Update the relevant project knowledge files.
+2. Record decisions in [Decisions.md](./docs/knowledge/Decisions.md).
+3. Add future feature work to [PlannedFeatures.md](./docs/knowledge/PlannedFeatures.md).
+4. Add postponed cleanup or debt to [DeferredWork.md](./docs/knowledge/DeferredWork.md).
+5. Add active bugs, limitations, risks, or workarounds to [KnownIssues.md](./docs/knowledge/KnownIssues.md).
+6. Append meaningful outcomes to [CHANGELOG.md](./CHANGELOG.md).
+7. Update [CURRENT_STATE.md](./docs/knowledge/CURRENT_STATE.md) when project status, deployment, or verification state changes.
+8. Consider whether any learning should be recommended for Obsidian or the AI Root System.
 
-- The clean upload package is [publish](./publish).
-- The root project also contains planning docs, verification screenshots, and zip artifacts. Do not use the full root folder for drag-and-drop hosting unless the user wants docs exposed too.
-- When changing website files, sync the equivalent files into `publish/`.
-- GitHub repo: `robindev2026-a11y/vortex_dynamics`.
-- GitHub Pages URL: `https://robindev2026-a11y.github.io/vortex_dynamics/`.
-- GitHub Pages is configured from branch `main`, path `/`.
-
-## Verification Rules
+## Verification Expectations
 
 For non-trivial website changes, verify at minimum:
 
 - `node --check assets/js/site.js`
 - `node --check assets/js/data.js`
-- Local static server test if practical
+- `node --check site/assets/js/site.js`
+- `node --check site/assets/js/data.js`
+- Local static server test when practical
 - Desktop and mobile visual checks when layout, animation, or responsive behavior changes
-- Form success behavior if quote/contact/career forms change
+- Form success behavior when quote, contact, or career forms change
 - No horizontal scroll on mobile
-- All eight pages still load:
-  - `index.html`
-  - `services.html`
-  - `solutions.html`
-  - `case-studies.html`
-  - `about.html`
-  - `careers.html`
-  - `contact.html`
-  - `request-quote.html`
+- All eight pages still load
 
-## Current Priority
-
-Preserve the completed static site, improve content/media as real business details arrive, and keep the project ready for future admin-panel integration.
-
----
-
-Status: ACTIVE | System: Living Knowledge Base
-
+Status: ACTIVE | System: AI Root System aligned project documentation
