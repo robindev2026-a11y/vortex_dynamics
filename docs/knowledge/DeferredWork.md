@@ -47,3 +47,6 @@
 - Item: Implement WhatsApp inquiry notification flow.
   - Completion: Configured form submissions to automatically package requirements and launch a pre-filled WhatsApp message redirect to the owner's phone number.
 
+- Item: Integrate custom conversational chatbot assistant.
+  - Completion: Implemented a floating conversational chatbot (Option 2) that guides users through structured inquiries step-by-step (Name, Email, Service, Brief) and generates a pre-filled WhatsApp Click-to-Chat submission button at the end.
+

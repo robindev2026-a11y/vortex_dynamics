@@ -112,7 +112,7 @@ Expected future admin-editable groups:
 - Social links use `#`
 - Work/project images are SVG placeholders
 - R&D Lab cards are placeholders for future IoT, DevOps/cloud, mobile/web, edge AI, and integration-room photos
-- Forms use client-side WhatsApp Click-to-Chat automation (redirecting submissions to the owner's WhatsApp number with all formatted parameters pre-filled)
+- Forms and a custom floating conversational chatbot assistant use client-side WhatsApp Click-to-Chat automation (redirecting submissions/conversations to the owner's WhatsApp number with all formatted parameters pre-filled)
 - Resume upload is visual only until a backend/form database exists
 
 ## Verification Already Completed
