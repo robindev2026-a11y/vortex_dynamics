@@ -92,10 +92,10 @@ window.VORTIQ_DATA = {
       id: "integration-room",
       title: "Product Integration Room",
       category: "Systems R&D",
-      description: "A central view of architecture planning, prototype review, device testing, and platform integration.",
+      description: "Our core systems integration environment where physical electronics, custom firmware, cloud backend layers, and interactive interfaces are connected. It supports end-to-end telemetry testing, drone hardware calibration, sensor fusion verification, and regression tests under full operational loads.",
       image: "assets/images/rd-product-integration.jpg",
       alt: "Drone assembly and testing on a development workbench",
-      tags: ["Sensor Fusion", "Edge Systems", "Integration"],
+      tags: ["Sensor Fusion", "Edge Systems", "Integration", "HIL Testing", "Telemetry Verification"],
       featured: true
     },
     {
@@ -158,12 +158,12 @@ window.VORTIQ_DATA = {
     }
   ],
   techStack: [
-    { title: "Frontend", items: ["React", "Next.js", "HTML", "CSS"] },
-    { title: "Backend", items: ["Node.js", "Python", "APIs"] },
     { title: "Cloud", items: ["AWS", "Azure", "Google Cloud", "Cloudflare"] },
     { title: "IoT/Embedded", items: ["RTOS", "IoT", "Hardware", "PCB Designing", "Firmware"] },
+    { title: "AI/Edge AI", items: ["Edge AI Products", "Autonomous Navigation", "ADAS"] },
     { title: "Mobile", items: ["Flutter", "React Native", "Android"] },
-    { title: "AI/Edge AI", items: ["Edge AI Products", "Autonomous Navigation", "ADAS"] }
+    { title: "Frontend", items: ["React", "Next.js", "HTML", "CSS"] },
+    { title: "Backend", items: ["Node.js", "Python", "APIs"] }
   ],
   caseStudies: [
     {
