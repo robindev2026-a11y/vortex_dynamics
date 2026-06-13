@@ -429,12 +429,36 @@
     document.querySelectorAll("form[data-static-form]").forEach((form) => {
       form.addEventListener("submit", (event) => {
         event.preventDefault();
+        
+        // Extract form fields
+        const formData = new FormData(form);
+        let message = `Hello Vortiq Dynamics, I have an inquiry:\n\n`;
+        
+        for (let [key, value] of formData.entries()) {
+          if (value && key !== "resume") {
+            const label = key.charAt(0).toUpperCase() + key.slice(1);
+            message += `*${label}*: ${value}\n`;
+          }
+        }
+        
+        // Format wa.me phone string (remove symbols and spaces)
+        const phone = data.site.phone.replaceAll(" ", "").replaceAll("+", "");
+        const waUrl = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+        
+        // Show status feedback
         const status = form.querySelector("[data-form-status]");
         if (status) {
-          status.textContent = "Thanks. This static demo captured the request locally. We can connect real email/API submission later.";
+          status.textContent = "Thank you! Opening WhatsApp to send your requirements...";
           status.removeAttribute("hidden");
         }
+        
+        // Reset inputs
         form.reset();
+        
+        // Open WhatsApp in new tab
+        setTimeout(() => {
+          window.open(waUrl, "_blank");
+        }, 800);
       });
     });
   }

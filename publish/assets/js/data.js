@@ -2,8 +2,8 @@ window.VORTIQ_DATA = {
   site: {
     name: "Vortiq Dynamics",
     tagline: "Connected technology systems for intelligent businesses.",
-    email: "contact@vortiqdynamics.com",
-    phone: "+91 XXXXX XXXXX",
+    email: "robin.dev.2026@gmail.com",
+    phone: "+91 70126 55068",
     location: "India / Global project delivery",
     social: [
       { label: "LinkedIn", href: "#" },
