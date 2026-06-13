@@ -54,7 +54,7 @@ For the durable architecture record, use [Architecture.md](./Architecture.md). F
 - Brand: Vortiq Dynamics
 - Style: B2B Luxury Tech Pro Showcase (Apple-level polish)
 - Fonts: Outfit (headings), Inter (body)
-- Theme: default Obsidian Dark Mode (`#05080C`) with smooth transition toggle to Cream Light Mode
+- Theme: default Cream Light Mode (#fbf5dd)
 - Scroll: Lenis Inertial Scroll with custom slide-up reveals
 - Transitions: fade page transitions on internal link loads
 - Header: scroll blurs with autohide on scroll down

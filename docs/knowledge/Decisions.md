@@ -74,3 +74,15 @@ Important project decisions and their rationale.
 
 **Tradeoffs:** Added dependencies on Lenis smooth scroll and Google Fonts, requiring careful styling overrides for light/dark modes and scroll events, but greatly increases aesthetic appeal and user engagement.
 
+## 2026-06-13 - Revert to Single Default Premium Light Theme
+
+**Decision:** Remove the dark theme overrides and theme toggle switch, returning the default site layout to a clean Cream Light Mode theme.
+
+**Context:** The user requested the removal of dark mode to focus purely on the clean light layout.
+
+**Rationale:** Simplifying the style to a single default light theme maintains visual focus, reduces script load, and ensures clean alignment with the initial branding goals while retaining all premium elements (Outfit/Inter fonts, Lenis scroll, scroll reveals, map animations, autohiding header, and transitions).
+
+**Alternatives considered:** Hide the theme toggle button but keep the dark theme variables. This was rejected to keep the codebase clean and avoid dead CSS/JS.
+
+**Tradeoffs:** The site no longer has a dark mode option, but remains lighter, cleaner, and strictly aligned with user preferences.
+
