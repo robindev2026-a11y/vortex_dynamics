@@ -576,6 +576,164 @@
     });
   }
 
+  function initChatbot() {
+    if (document.getElementById("vortiq-chatbot")) return;
+
+    const chatbot = document.createElement("div");
+    chatbot.id = "vortiq-chatbot";
+    chatbot.className = "vortiq-chatbot";
+    chatbot.innerHTML = `
+      <button class="chatbot-toggle" type="button" aria-label="Open chat assistant">
+        <svg class="chat-open-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+        <svg class="chat-close-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+      
+      <div class="chatbot-window" style="display:none">
+        <div class="chatbot-header">
+          <span class="brand-mark">VD</span>
+          <div>
+            <h4>Vortiq Assistant</h4>
+            <span>Online • Engineering Agent</span>
+          </div>
+        </div>
+        <div class="chatbot-messages" id="chatbot-messages"></div>
+        <div class="chatbot-input-area">
+          <input type="text" id="chatbot-input" placeholder="Type your response..." autocomplete="off">
+          <button type="button" id="chatbot-send" aria-label="Send message">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+          </button>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(chatbot);
+
+    const toggleBtn = chatbot.querySelector(".chatbot-toggle");
+    const chatWindow = chatbot.querySelector(".chatbot-window");
+    const openIcon = chatbot.querySelector(".chat-open-icon");
+    const closeIcon = chatbot.querySelector(".chat-close-icon");
+    const messagesArea = chatbot.querySelector("#chatbot-messages");
+    const inputField = chatbot.querySelector("#chatbot-input");
+    const sendBtn = chatbot.querySelector("#chatbot-send");
+
+    let step = 0;
+    let userData = { name: "", email: "", service: "", brief: "" };
+    let initialized = false;
+
+    toggleBtn.addEventListener("click", () => {
+      const isVisible = chatWindow.style.display !== "none";
+      if (isVisible) {
+        chatWindow.style.display = "none";
+        openIcon.style.display = "block";
+        closeIcon.style.display = "none";
+      } else {
+        chatWindow.style.display = "flex";
+        openIcon.style.display = "none";
+        closeIcon.style.display = "block";
+        inputField.focus();
+        if (!initialized) {
+          triggerBotGreeting();
+          initialized = true;
+        }
+      }
+    });
+
+    function addMessage(sender, text, isHtml = false) {
+      const msg = document.createElement("div");
+      msg.className = `chat-msg ${sender}-msg`;
+      if (isHtml) {
+        msg.innerHTML = text;
+      } else {
+        msg.textContent = text;
+      }
+      messagesArea.appendChild(msg);
+      messagesArea.scrollTop = messagesArea.scrollHeight;
+    }
+
+    function addTypingIndicator() {
+      const ind = document.createElement("div");
+      ind.className = "chat-msg bot-msg typing-indicator";
+      ind.id = "chatbot-typing";
+      ind.innerHTML = `<span></span><span></span><span></span>`;
+      messagesArea.appendChild(ind);
+      messagesArea.scrollTop = messagesArea.scrollHeight;
+    }
+
+    function removeTypingIndicator() {
+      const ind = document.getElementById("chatbot-typing");
+      if (ind) ind.remove();
+    }
+
+    function botSpeak(text, delay = 600, isHtml = false) {
+      addTypingIndicator();
+      setTimeout(() => {
+        removeTypingIndicator();
+        addMessage("bot", text, isHtml);
+      }, delay);
+    }
+
+    function triggerBotGreeting() {
+      botSpeak("Hello! Welcome to Vortiq Dynamics. I'm your virtual engineering assistant.");
+      botSpeak("I can package your requirements and help notify our team. To get started, what is your name?", 1200);
+    }
+
+    function processInput() {
+      const text = inputField.value.trim();
+      if (!text) return;
+
+      inputField.value = "";
+      addMessage("user", text);
+
+      if (text.toLowerCase() === "reset" || text.toLowerCase() === "start over") {
+        step = 0;
+        userData = { name: "", email: "", service: "", brief: "" };
+        messagesArea.innerHTML = "";
+        triggerBotGreeting();
+        return;
+      }
+
+      if (step === 0) {
+        userData.name = text;
+        step = 1;
+        botSpeak(`Nice to meet you, ${escapeHtml(userData.name)}! What is your email address so we can reach you?`);
+      } else if (step === 1) {
+        if (!text.includes("@") || text.length < 5) {
+          botSpeak("That email address looks incomplete. Could you please double check and type a valid email?");
+        } else {
+          userData.email = text;
+          step = 2;
+          botSpeak("Got it. What type of service are you looking for? (e.g. IoT, Embedded, Cloud, Web Apps, Mobile, Edge AI)");
+        }
+      } else if (step === 2) {
+        userData.service = text;
+        step = 3;
+        botSpeak("Excellent. Please briefly describe your project goals, technical requirements, or what you want to achieve.");
+      } else if (step === 3) {
+        userData.brief = text;
+        step = 4;
+
+        let summary = `Hello Vortiq Dynamics, I have an inquiry via Chat Assistant:\n\n`;
+        summary += `*Name*: ${userData.name}\n`;
+        summary += `*Email*: ${userData.email}\n`;
+        summary += `*Service*: ${userData.service}\n`;
+        summary += `*Brief*: ${userData.brief}\n`;
+
+        const phone = data.site.phone.replaceAll(" ", "").replaceAll("+", "");
+        const waUrl = `https://wa.me/${phone}?text=${encodeURIComponent(summary)}`;
+
+        botSpeak("Perfect! I've compiled your requirements. Click the button below to send it directly to our team via WhatsApp:", 600);
+        
+        const btnHtml = `<a href="${waUrl}" target="_blank" rel="noopener noreferrer" class="btn chatbot-submit-btn">Submit via WhatsApp</a><p style="font-size: 0.78rem; color: var(--muted); margin-top: 8px;">Type "reset" to start a new inquiry.</p>`;
+        botSpeak(btnHtml, 1200, true);
+      }
+    }
+
+    sendBtn.addEventListener("click", processInput);
+    inputField.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") processInput();
+    });
+  }
+
+  initChatbot();
   renderHeader();
   renderFooter();
   renderServices();
