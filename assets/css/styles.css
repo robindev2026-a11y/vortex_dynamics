@@ -598,6 +598,12 @@ textarea {
   box-shadow: var(--shadow);
 }
 
+/* Subtle border for the About page ambient image */
+body[data-page="about"] .ambient-main {
+  border: 2px solid rgba(62, 209, 111, 0.12);
+  box-shadow: 0 26px 80px rgba(11, 31, 35, 0.18);
+}
+
 .ambient-media.compact .ambient-main {
   min-height: 180px;
 }
