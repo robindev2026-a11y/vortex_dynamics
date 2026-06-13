@@ -7,9 +7,9 @@
   - Risk: Users may think forms submit real inquiries if this is not clearly handled in deployment context.
   - Suggested timing: Before relying on the website for live lead capture or hiring intake.
 
-- Item: Final contact details and social links.
-  - Reason deferred: The user has not provided final values.
-  - Risk: Placeholder details can reduce credibility or misroute users if left in production.
+- Item: Final social media links.
+  - Reason deferred: The user has not provided final URL addresses.
+  - Risk: Placeholder links route users back to home page or empty targets.
   - Suggested timing: Before public business launch.
 
 - Item: Real work images and R&D Lab media.
@@ -40,4 +40,10 @@
 
 - Item: Confirm and configure GitHub Pages workflow deployment.
   - Completion: Updated repository Pages build type settings to `workflow` via the API and successfully ran/monitored the deployment workflow, confirming the live URL now serves the static site correctly.
+
+- Item: Update final contact phone and email details.
+  - Completion: Updated phone number to `+91 70126 55068` and email to `robin.dev.2026@gmail.com` across the codebase.
+
+- Item: Implement WhatsApp inquiry notification flow.
+  - Completion: Configured form submissions to automatically package requirements and launch a pre-filled WhatsApp message redirect to the owner's phone number.
 

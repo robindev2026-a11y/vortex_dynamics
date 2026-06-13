@@ -109,14 +109,11 @@ Expected future admin-editable groups:
 
 ## Known Placeholders
 
-- `contact@vortiqdynamics.com`
-- `+91 XXXXX XXXXX`
-- `India / Global project delivery`
 - Social links use `#`
 - Work/project images are SVG placeholders
 - R&D Lab cards are placeholders for future IoT, DevOps/cloud, mobile/web, edge AI, and integration-room photos
-- Forms show static success messages and do not submit to a backend
-- Resume upload is visual only until a backend/form service exists
+- Forms use client-side WhatsApp Click-to-Chat automation (redirecting submissions to the owner's WhatsApp number with all formatted parameters pre-filled)
+- Resume upload is visual only until a backend/form database exists
 
 ## Verification Already Completed
 

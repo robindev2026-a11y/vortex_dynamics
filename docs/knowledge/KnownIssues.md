@@ -2,19 +2,14 @@
 
 ## Active Issues
 
-- Issue: Contact details are placeholders.
-  - Impact: Phone, email, location, and social links are not final business information.
-  - Workaround: Replace only when the user provides approved final details.
-  - Status: Open.
-
-- Issue: Forms do not submit to a backend.
-  - Impact: Quote, contact, and career form submissions are not captured server-side.
-  - Workaround: Forms show static client-side success behavior for the current static version.
-  - Status: Open until a backend or form service is connected.
+- Issue: Forms do not submit to a database.
+  - Impact: Quote, contact, and career form submissions are not captured in a server database.
+  - Workaround: Forms use client-side WhatsApp Click-to-Chat automation to package and redirect requirements directly to the owner.
+  - Status: Partially resolved (automated redirect notification is live).
 
 - Issue: Resume upload is visual only.
-  - Impact: Career applicants cannot upload a resume through the static site.
-  - Workaround: Treat it as a future-ready field until form infrastructure exists.
+  - Impact: Career applicants cannot upload a resume file directly to a server.
+  - Workaround: Treat it as a visual attachment placeholder until a database backend exists.
   - Status: Open.
 
 - Issue: Work/project/R&D Lab imagery is partly placeholder-based.
@@ -43,4 +38,7 @@
 
 - Issue: GitHub Pages settings may need to allow GitHub Actions as the Pages source.
   - Resolution: Configured repository Pages settings via GitHub CLI API (`PUT /repos/{owner}/{repo}/pages` with `build_type: workflow`). Confirmed successful run of `Deploy Pages` workflow deploying the `publish` directory and confirmed correct static site is serving live.
+
+- Issue: Contact details are placeholders.
+  - Resolution: Updated data.js with final email address (`robin.dev.2026@gmail.com`) and phone number (`+91 70126 55068`).
 
