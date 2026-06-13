@@ -656,6 +656,94 @@ textarea {
   font-size: 0.9rem;
 }
 
+.lab-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr 0.85fr;
+  gap: 18px;
+}
+
+.lab-card {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  align-content: start;
+  min-height: 100%;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.58);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  transition: border-color 180ms ease, transform 180ms ease, background 180ms ease;
+}
+
+.lab-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(62, 209, 111, 0.58);
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.lab-card.featured {
+  grid-row: span 2;
+}
+
+.lab-card .ambient-media {
+  min-height: 0;
+  padding: 16px;
+}
+
+.lab-card.featured .ambient-media {
+  min-height: 0;
+  padding: 22px;
+}
+
+.lab-card .ambient-main {
+  aspect-ratio: 16 / 10;
+  min-height: 0;
+  height: auto;
+}
+
+.lab-card.featured .ambient-main {
+  min-height: 0;
+}
+
+.lab-card-body {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+  padding: 20px;
+}
+
+.lab-card-body p {
+  color: var(--deep-teal);
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.lab-card-body h3 {
+  font-size: 1.3rem;
+}
+
+.lab-card-body span {
+  color: var(--muted);
+  font-size: 0.94rem;
+}
+
+.lab-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.lab-tags em {
+  padding: 7px 9px;
+  color: var(--charcoal);
+  background: var(--mint);
+  border-radius: var(--radius);
+  font-size: 0.78rem;
+  font-style: normal;
+  font-weight: 850;
+}
+
 .services-grid,
 .tech-grid,
 .case-grid,
@@ -1093,6 +1181,15 @@ textarea {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
+  .lab-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .lab-card.featured {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+
   .services-grid,
   .process-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1188,6 +1285,7 @@ textarea {
   .case-grid,
   .gallery-grid,
   .tech-grid,
+  .lab-grid,
   .services-grid,
   .process-grid,
   .flow-track {

@@ -1,5 +1,26 @@
 # CHANGELOG - Vortiq Dynamics
 
+## [2026-06-12] - Homepage R&D Lab Showcase Added
+
+**What changed:**
+- Added a new homepage section titled `Inside the Vortiq R&D Lab`.
+- Placed it after Capability Flow and before Services.
+- Implemented a featured grid instead of a carousel so multiple work categories stay visible.
+- Added data-driven R&D lab entries in [assets/js/data.js](./assets/js/data.js).
+- Added rendering support in [assets/js/site.js](./assets/js/site.js).
+- Added responsive grid styling in [assets/css/styles.css](./assets/css/styles.css).
+- Added `rd-lab` as a future admin/media slot.
+
+**Why:**
+- The site needs a strong place to showcase real R&D/work photos later across IoT, DevOps/cloud, mobile/web, edge AI, and product integration.
+
+**Verification:**
+- JavaScript syntax checks passed.
+- Local static server confirmed all eight pages returned `200`.
+- Browser verification confirmed 5 R&D Lab cards, 1 featured card, the drone/sensor image in the featured card, no console errors, and no horizontal scroll on desktop or mobile.
+- GitHub Pages build for commit `87adfa3` completed successfully.
+- Live HTML contains `Inside the Vortiq R&D Lab.` and live `assets/js/data.js` references `drone-sensor-fusion-module.png`.
+
 ## [2026-06-12] - AI Handoff Documentation Added
 
 **What changed:**
