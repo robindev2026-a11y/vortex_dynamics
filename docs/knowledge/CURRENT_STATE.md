@@ -56,7 +56,10 @@ For the durable architecture record, use [Architecture.md](./Architecture.md). F
 - Fonts: Outfit (headings), Inter (body)
 - Theme: default Cream Light Mode (#fbf5dd)
 - Scroll: Lenis Inertial Scroll with custom slide-up reveals
-- Transitions: fade page transitions on internal link loads
+- Loader: homepage-only first-session boot sequence with SVG circuit trace, status lines, wordmark, and bottom progress bar
+- Scroll reveals: `spark`, `flow`, `circuit`, and mobile `pulse` variants using the existing `.reveal` + `IntersectionObserver` contract
+- Transitions: fade/scale page transitions on same-origin internal HTML links with a top green progress line
+- Ambient motion: subtle CSS-only energy movement on dark sections, paused outside the viewport
 - Header: scroll blurs with autohide on scroll down
 - Hero: interactive SVG circuit board (hover scaling nodes & hot pulses)
 - Hero text: typewriter effect
@@ -64,6 +67,7 @@ For the durable architecture record, use [Architecture.md](./Architecture.md). F
 - Services: all seven service cards equally visible
 - Media: placeholder SVGs now, real work images later
 - Image treatment: ambient blurred background clone behind clear foreground image
+- Image performance: runtime photo references use optimized WebP assets; JS-rendered media uses lazy loading and async decoding
 - Motion: scroll reveals, hover transitions, and page transitions with reduced-motion overrides
 
 ## Palette Rules
@@ -135,10 +139,27 @@ Local verification completed after the static build:
   - No console/page errors
 - R&D Lab verification confirmed no horizontal scroll on desktop or mobile.
 - Live GitHub Pages verification confirmed the R&D Lab section text and data-file image reference are published.
+- Futuristic animation verification completed on 2026-06-14:
+  - `node --check project/assets/js/site.js`
+  - `node --check project/assets/js/data.js`
+  - Local static server on port `4173`
+  - All eight pages returned `200`
+  - Homepage loader plays on fresh session and skips on same-session reload
+  - Internal page transition bar and page-leaving class activate before navigation
+  - All 46 homepage reveal elements reached `is-revealed` during scroll verification
+  - Mobile viewport had no horizontal overflow and used `pulse` reveal mode
+  - Reduced-motion mode showed content immediately and hid the loader after the short fallback
+- Image optimization verification completed on 2026-06-14:
+  - Runtime photo assets converted to WebP, totaling about `924 KB`
+  - Original JPG/PNG photo set totaled about `5.3 MB`
+  - Local browser check found no local resource failures or broken images
+  - Mobile viewport still had no horizontal overflow
 - Desktop screenshot: [docs/verification/home-desktop-revealed.png](../verification/home-desktop-revealed.png)
 - Mobile screenshot: [docs/verification/home-mobile-revealed.png](../verification/home-mobile-revealed.png)
 - R&D Lab desktop screenshot: [docs/verification/home-rd-lab-desktop.png](../verification/home-rd-lab-desktop.png)
 - R&D Lab mobile screenshot: [docs/verification/home-rd-lab-mobile.png](../verification/home-rd-lab-mobile.png)
+- Futuristic animation desktop screenshot: [docs/verification/futuristic-home-desktop.png](../verification/futuristic-home-desktop.png)
+- Futuristic animation mobile screenshot: [docs/verification/futuristic-home-mobile.png](../verification/futuristic-home-mobile.png)
 
 ## Open Issues / Next Plan
 

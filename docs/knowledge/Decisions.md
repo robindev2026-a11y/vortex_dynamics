@@ -2,6 +2,18 @@
 
 Important project decisions and their rationale.
 
+## 2026-06-14 - Implement Futuristic Motion With Native CSS And Vanilla JS
+
+**Decision:** Add the homepage loader, reveal variants, page transition bar, ambient dark-section energy motion, and hover micro-interactions using only existing HTML, CSS, and vanilla JavaScript.
+
+**Context:** The site needed a more futuristic, system-boot-like animation layer while preserving the no-build static architecture and existing `.reveal`/Lenis behavior.
+
+**Rationale:** CSS keyframes and `IntersectionObserver` provide enough visual richness for the requested effects without adding an animation dependency, framework, or build step.
+
+**Alternatives considered:** Add a motion library or a canvas/WebGL background. These were rejected because the requested effects are lightweight and the project explicitly avoids new dependencies.
+
+**Tradeoffs:** More animation CSS must be maintained manually, but the site remains easy to deploy, inspect, and sync into [publish](../../publish).
+
 ## 2026-06-13 - Adopt AI Root System Documentation Structure
 
 **Decision:** Align the project documentation with the AI Root System by adding dedicated knowledge files for AI context, architecture, planned features, deferred work, decisions, known issues, and development standards.
@@ -85,4 +97,3 @@ Important project decisions and their rationale.
 **Alternatives considered:** Hide the theme toggle button but keep the dark theme variables. This was rejected to keep the codebase clean and avoid dead CSS/JS.
 
 **Tradeoffs:** The site no longer has a dark mode option, but remains lighter, cleaner, and strictly aligned with user preferences.
-

@@ -90,7 +90,7 @@
 
   function serviceCard(service, index) {
     return `
-      <article class="service-card reveal" id="${service.id}" style="--delay:${index * 70}ms">
+      <article class="service-card reveal" data-reveal="flow" id="${service.id}" style="--delay:${index * 70}ms">
         <div class="icon-box">${iconMap[service.icon] || iconMap.chip}</div>
         <h3>${service.title}</h3>
         <p>${service.description}</p>
@@ -111,7 +111,7 @@
           ${data.flow
             .map(
               (item, index) => `
-                <article class="flow-node reveal" style="--delay:${index * 80}ms">
+                <article class="flow-node reveal" data-reveal="circuit" style="--delay:${index * 80}ms">
                   <span>${String(index + 1).padStart(2, "0")}</span>
                   <h3>${item.title}</h3>
                   <p>${item.detail}</p>
@@ -129,10 +129,10 @@
       mount.innerHTML = data.rdLab
         .map(
           (item, index) => `
-            <article class="lab-card ${item.featured ? "featured" : ""} reveal" style="--delay:${index * 80}ms">
+            <article class="lab-card ${item.featured ? "featured" : ""} reveal" data-reveal="flow" style="--delay:${index * 80}ms">
               <div class="ambient-media compact">
-                <img class="ambient-bg" src="${item.image}" alt="" aria-hidden="true">
-                <img class="ambient-main" src="${item.image}" alt="${escapeHtml(item.alt)}">
+                <img class="ambient-bg" src="${item.image}" alt="" aria-hidden="true" loading="lazy" decoding="async">
+                <img class="ambient-main" src="${item.image}" alt="${escapeHtml(item.alt)}" loading="lazy" decoding="async">
               </div>
               <div class="lab-card-body">
                 <p>${escapeHtml(item.category)}</p>
@@ -154,7 +154,7 @@
       mount.innerHTML = data.process
         .map(
           (item, index) => `
-            <article class="process-step reveal" style="--delay:${index * 80}ms">
+            <article class="process-step reveal" data-reveal="flow" style="--delay:${index * 80}ms">
               <span>Step ${index + 1}</span>
               <h3>${item.title}</h3>
               <p>${item.description}</p>
@@ -170,7 +170,7 @@
       mount.innerHTML = data.techStack
         .map(
           (group, index) => `
-            <article class="tech-card reveal" style="--delay:${index * 70}ms">
+            <article class="tech-card reveal" data-reveal="circuit" style="--delay:${index * 70}ms">
               <h3>${group.title}</h3>
               <div class="chip-list">
                 ${group.items.map((item) => `<span>${item}</span>`).join("")}
@@ -187,10 +187,10 @@
       mount.innerHTML = data.caseStudies
         .map(
           (item, index) => `
-            <article class="case-card reveal" style="--delay:${index * 90}ms">
+            <article class="case-card reveal" data-reveal="circuit" style="--delay:${index * 90}ms">
               <div class="ambient-media compact">
-                <img class="ambient-bg" src="${item.image}" alt="" aria-hidden="true">
-                <img class="ambient-main" src="${item.image}" alt="">
+                <img class="ambient-bg" src="${item.image}" alt="" aria-hidden="true" loading="lazy" decoding="async">
+                <img class="ambient-main" src="${item.image}" alt="" loading="lazy" decoding="async">
               </div>
               <div class="case-content">
                 <h3>${item.title}</h3>
@@ -222,8 +222,8 @@
               (item, index) => `
                 <div class="carousel-slide ${index === 0 ? "active" : ""}">
                   <div class="ambient-media">
-                    <img class="ambient-bg" src="" alt="" aria-hidden="true">
-                    <img class="ambient-main" src="${item.image}" alt="${escapeHtml(item.alt)}">
+                    <img class="ambient-bg" src="" alt="" aria-hidden="true" loading="lazy" decoding="async">
+                    <img class="ambient-main" src="${item.image}" alt="${escapeHtml(item.alt)}" loading="lazy" decoding="async">
                   </div>
                   <div class="carousel-info">
                     <span class="carousel-category">${escapeHtml(item.category)}</span>
@@ -330,7 +330,7 @@
       mount.innerHTML = data.faqs
         .map(
           (item, index) => `
-            <details class="faq-item reveal" style="--delay:${index * 60}ms">
+            <details class="faq-item reveal" data-reveal="spark" style="--delay:${index * 60}ms">
               <summary>${item.question}</summary>
               <p>${item.answer}</p>
             </details>
@@ -365,18 +365,93 @@
     window.addEventListener("scroll", update, { passive: true });
   }
 
+  /* === ANIMATION ENGINE === */
+  const reduceMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  function prefersReducedMotion() {
+    return reduceMotionQuery.matches;
+  }
+
+  function initSiteLoader() {
+    const loader = document.getElementById("site-loader");
+    if (!loader) return;
+
+    const hideLoader = (delay = 0) => {
+      window.setTimeout(() => {
+        loader.classList.add("is-done");
+        window.setTimeout(() => {
+          loader.setAttribute("hidden", "");
+        }, 420);
+      }, delay);
+    };
+
+    try {
+      if (sessionStorage.getItem("vortiq_loaded") === "1") {
+        loader.setAttribute("hidden", "");
+        return;
+      }
+      sessionStorage.setItem("vortiq_loaded", "1");
+    } catch (error) {
+      // Private browsing or storage policies should not block page access.
+    }
+
+    loader.classList.add("is-active");
+    hideLoader(prefersReducedMotion() ? 400 : 2200);
+  }
+
+  function prepareRevealElements() {
+    document.querySelectorAll(".section-head.reveal").forEach((item) => {
+      item.dataset.reveal = item.dataset.reveal || "spark";
+    });
+    document.querySelectorAll(".copy-block.reveal, .info-panel.reveal, .form-panel.reveal").forEach((item) => {
+      item.dataset.reveal = item.dataset.reveal || "spark";
+    });
+    document.querySelectorAll(".feature-card.reveal, .service-card.reveal, .process-step.reveal, .lab-card.reveal").forEach((item) => {
+      item.dataset.reveal = item.dataset.reveal || "flow";
+    });
+    document.querySelectorAll(".flow-node.reveal, .tech-card.reveal, .case-card.reveal").forEach((item) => {
+      item.dataset.reveal = item.dataset.reveal || "circuit";
+    });
+    document.querySelectorAll(".ambient-media.reveal, .faq-item.reveal").forEach((item) => {
+      item.dataset.reveal = item.dataset.reveal || "spark";
+    });
+
+    document
+      .querySelectorAll(".services-grid, .tech-grid, .feature-grid, .process-grid, .case-grid, .lab-grid, .faq-list")
+      .forEach((container) => {
+        container.setAttribute("data-reveal-stagger", "");
+      });
+
+    const mobileReveal = window.matchMedia("(max-width: 767px)").matches;
+    document.querySelectorAll(".reveal").forEach((item) => {
+      if (!item.dataset.revealOriginal) {
+        item.dataset.revealOriginal = item.dataset.reveal || "spark";
+      }
+      item.dataset.reveal = mobileReveal ? "pulse" : item.dataset.revealOriginal;
+    });
+
+    document.querySelectorAll("[data-reveal-stagger]").forEach((container) => {
+      Array.from(container.children).forEach((child, index) => {
+        if (child.classList.contains("reveal")) {
+          child.style.transitionDelay = `${index * 80}ms`;
+        }
+      });
+    });
+  }
+
   function initReveal() {
+    prepareRevealElements();
     const items = Array.from(document.querySelectorAll(".reveal"));
     if (!items.length) return;
-    if (!("IntersectionObserver" in window)) {
-      items.forEach((item) => item.classList.add("is-visible"));
+    if (prefersReducedMotion() || !("IntersectionObserver" in window)) {
+      items.forEach((item) => item.classList.add("is-visible", "is-revealed"));
       return;
     }
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
+            entry.target.classList.add("is-visible", "is-revealed");
             observer.unobserve(entry.target);
           }
         });
@@ -384,6 +459,24 @@
       { rootMargin: "0px 0px -10% 0px", threshold: 0.12 }
     );
     items.forEach((item) => observer.observe(item));
+  }
+
+  function initAmbientSections() {
+    const sections = Array.from(document.querySelectorAll(".section.dark"));
+    if (!sections.length) return;
+    if (prefersReducedMotion() || !("IntersectionObserver" in window)) {
+      sections.forEach((section) => section.classList.add("is-in-view"));
+      return;
+    }
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          entry.target.classList.toggle("is-in-view", entry.isIntersecting);
+        });
+      },
+      { rootMargin: "0px 0px -8% 0px", threshold: 0.08 }
+    );
+    sections.forEach((section) => observer.observe(section));
   }
 
   function initTypewriter() {
@@ -520,8 +613,12 @@
   function initPageTransitions() {
     const shell = document.querySelector(".site-shell");
     if (!shell) return;
+    const bar = document.getElementById("page-transition-bar");
+    const reducedMotion = prefersReducedMotion();
     
-    shell.classList.add("page-loaded");
+    window.requestAnimationFrame(() => {
+      shell.classList.add("page-loaded");
+    });
     
     document.body.addEventListener("click", (event) => {
       const link = event.target.closest("a");
@@ -531,16 +628,36 @@
       if (!href || href.startsWith("#") || href.startsWith("mailto:") || href.startsWith("tel:") || link.getAttribute("target") === "_blank") {
         return;
       }
-      
-      if (href.endsWith(".html")) {
-        event.preventDefault();
-        shell.classList.remove("page-loaded");
-        shell.classList.add("page-leaving");
-        
-        setTimeout(() => {
-          window.location.href = href;
-        }, 350);
+
+      let destination;
+      try {
+        destination = new URL(href, window.location.href);
+      } catch (error) {
+        return;
       }
+
+      const isSameOrigin = destination.origin === window.location.origin;
+      const isHtmlPage = destination.pathname.endsWith(".html") || destination.pathname.endsWith("/");
+      const isSamePageAnchor = destination.pathname === window.location.pathname && destination.hash;
+      if (!isSameOrigin || !isHtmlPage || isSamePageAnchor) return;
+
+      if (reducedMotion) {
+        window.location.href = destination.href;
+        return;
+      }
+
+      event.preventDefault();
+      shell.classList.remove("page-loaded");
+      shell.classList.add("page-leaving");
+      if (bar) {
+        bar.classList.remove("is-active");
+        void bar.offsetWidth;
+        bar.classList.add("is-active");
+      }
+      
+      setTimeout(() => {
+        window.location.href = destination.href;
+      }, 220);
     });
   }
 
@@ -733,6 +850,7 @@
     });
   }
 
+  initSiteLoader();
   initChatbot();
   renderHeader();
   renderFooter();
@@ -754,5 +872,6 @@
   initHeaderScroll();
   initTypewriter();
   initForms();
+  initAmbientSections();
   initReveal();
 })();

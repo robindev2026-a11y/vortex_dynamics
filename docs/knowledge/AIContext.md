@@ -7,6 +7,8 @@ Vortiq Dynamics is a completed first-version static website for a technology sol
 Current status:
 
 - Static website: built
+- Futuristic animation layer: implemented on 2026-06-14
+- Runtime images: optimized to WebP on 2026-06-14
 - Canonical website source: [project](../../project)
 - Deployable website output: [publish](../../publish)
 - Planning docs: present
@@ -17,6 +19,8 @@ Current status:
 - GitHub Pages URL: `https://robindev2026-a11y.github.io/vortex_dynamics/`
 - GitHub Pages deployment source needs confirmation after the root cleanup.
 - Latest known live verification: HTTP `200`; page contains `Vortiq Dynamics`; R&D Lab content and `drone-sensor-fusion-module.png` reference were published
+- Latest local animation verification: all eight pages returned `200`; homepage loader plays once per session; internal transition state activates before navigation; all 46 homepage reveal elements reached `is-revealed`; mobile used `pulse` reveal mode with no horizontal overflow; reduced-motion content became visible immediately.
+- Latest local image verification: runtime photo assets load from WebP references; local browser check found no broken images or local resource failures; WebP photo set is about `924 KB` versus about `5.3 MB` for the original JPG/PNG set.
 
 ## Active Priorities
 
@@ -32,6 +36,8 @@ Current status:
 - The site presents the company as an engineering-first technology partner for IoT, cloud, web, mobile, embedded systems, websites, and edge AI.
 - The visual direction is modern, technical, premium, trustworthy, and practical.
 - The hero direction is abstract PCB/cloud animation with a typewriter effect.
+- Homepage now includes a first-session boot loader, themed reveal variants (`spark`, `flow`, `circuit`, mobile `pulse`), same-origin page transition bar, and subtle ambient motion on dark sections.
+- Do not switch runtime image references back from WebP to JPG/PNG unless a specific fallback strategy is added.
 - Homepage includes an `Inside the Vortiq R&D Lab` showcase after Capability Flow and before Services.
 - All seven services must stay equally visible: IoT Solutions, Cloud Solutions, Web Applications, Mobile Applications, Websites, Embedded Systems, Edge AI.
 - The admin panel is planned for later; current work should preserve admin-ready data structures without building admin features prematurely.

@@ -92,7 +92,7 @@ window.VORTIQ_DATA = {
       title: "Product Integration Room",
       category: "Systems R&D",
       description: "Our core systems integration environment where physical electronics, custom firmware, cloud backend layers, and interactive interfaces are connected. It supports end-to-end telemetry testing, drone hardware calibration, sensor fusion verification, and regression tests under full operational loads.",
-      image: "assets/images/rd-product-integration.jpg",
+      image: "assets/images/rd-product-integration.webp",
       alt: "Drone assembly and testing on a development workbench",
       tags: ["Sensor Fusion", "Edge Systems", "Integration", "HIL Testing", "Telemetry Verification"],
       featured: true
@@ -102,7 +102,7 @@ window.VORTIQ_DATA = {
       title: "IoT & Embedded Lab",
       category: "Hardware",
       description: "Boards, sensors, firmware, telemetry, and connected-device testing.",
-      image: "assets/images/rd-iot-embedded.jpg",
+      image: "assets/images/rd-iot-embedded.webp",
       alt: "IoT smart sensor device clamped to a plant stem and connected to an Arduino board",
       tags: ["PCB", "Sensors", "Firmware"]
     },
@@ -111,7 +111,7 @@ window.VORTIQ_DATA = {
       title: "Cloud & DevOps Room",
       category: "Cloud",
       description: "Dashboards, APIs, Docker/Kubernetes planning, deployments, and monitoring.",
-      image: "assets/images/rd-cloud-devops.jpg",
+      image: "assets/images/rd-cloud-devops.webp",
       alt: "Server rack housing network switches and servers alongside system monitoring dashboard screens",
       tags: ["Docker", "Kubernetes", "APIs"]
     },
@@ -120,7 +120,7 @@ window.VORTIQ_DATA = {
       title: "Mobile & Web Studio",
       category: "Applications",
       description: "Mobile UI, admin panels, field apps, product websites, and business platforms.",
-      image: "assets/images/rd-mobile-web.jpg",
+      image: "assets/images/rd-mobile-web.webp",
       alt: "Software design and development team collaborating on mobile application UI and code",
       tags: ["Mobile UI", "Web Apps", "Dashboards"]
     },
@@ -129,7 +129,7 @@ window.VORTIQ_DATA = {
       title: "AI & Edge Vision Lab",
       category: "Intelligence",
       description: "On-device intelligence, vision systems, predictive logic, autonomous navigation, and ADAS concepts.",
-      image: "assets/images/rd-edge-ai.jpg",
+      image: "assets/images/rd-edge-ai.webp",
       alt: "Edge AI developer interface showing computer vision object tracking bounding boxes",
       tags: ["Vision AI", "Edge AI", "ADAS"]
     }
@@ -191,35 +191,35 @@ window.VORTIQ_DATA = {
     {
       title: "Electronics Design Bench",
       category: "Electronics",
-      image: "assets/images/gallery-electronics-workbench.jpg",
+      image: "assets/images/gallery-electronics-workbench.webp",
       description: "Close-up of our hardware prototyping workspace, featuring diagnostic equipment, multimeters, and high-frequency oscilloscopes for PCB signal analysis.",
       alt: "Electronics prototyping workbench with custom circuit boards and testing tools"
     },
     {
       title: "PCB Testing & Calibration",
       category: "Hardware",
-      image: "assets/images/gallery-pcb-calibration.jpg",
+      image: "assets/images/gallery-pcb-calibration.webp",
       description: "Development board testing. Engineers calibrate sensor communication interfaces and flash custom firmware onto microcontrollers under HIL simulations.",
       alt: "Close-up of custom electronic development board connected to multimeters and debugger lines"
     },
     {
       title: "IoT Smart Soil Telemetry",
       category: "IoT Systems",
-      image: "assets/images/gallery-iot-plant.jpg",
+      image: "assets/images/gallery-iot-plant.webp",
       description: "Live prototyping of agricultural telemetry nodes, measuring soil parameters, moisture, and temperature dynamically over low-power wireless protocols.",
       alt: "Potted green plant with custom sensor probe connected to an electronics board on a wooden desk"
     },
     {
       title: "Greenhouse Sensor Network",
       category: "Greenhouse Automation",
-      image: "assets/images/gallery-greenhouse-deployment.jpg",
+      image: "assets/images/gallery-greenhouse-deployment.webp",
       description: "Full-scale deployment of our agricultural IoT ecosystem. Weather sensors, soil telemetry, and camera feeds monitor crop health and environmental parameters.",
       alt: "Greenhouse interior showing automated weather station modules and sensor probes installed next to crop rows"
     },
     {
       title: "Automated Drip Irrigation Node",
       category: "Automation Systems",
-      image: "assets/images/gallery-greenhouse-irrigation.jpg",
+      image: "assets/images/gallery-greenhouse-irrigation.webp",
       description: "Greenhouse automation actuators controlling water distribution, pressure lines, and nutrient dosing triggers, integrated with real-time cloud dashboard feeds.",
       alt: "Actuator and water filters installed on PVC piping inside a greenhouse row with sensor probes"
     }

@@ -1,5 +1,43 @@
 # CHANGELOG - Vortiq Dynamics
 
+## [2026-06-14] - Image Loading Optimization
+
+**What changed:**
+- Generated optimized WebP versions for all runtime JPG/PNG photo assets.
+- Switched homepage, about page, R&D Lab, and gallery image references to WebP.
+- Added `decoding="async"` to static page images and `loading="lazy" decoding="async"` to JavaScript-rendered media images.
+- Synced optimized image references and assets from [project](./project) into [publish](./publish).
+
+**Why:**
+- Reduce image payload and decode pressure so scrolling and page loading stay smooth.
+
+**Verification:**
+- Runtime photo assets now total about `924 KB` as WebP, compared with about `5.3 MB` for the original JPG/PNG set.
+- `node --check project/assets/js/site.js`
+- `node --check project/assets/js/data.js`
+- Local browser verification confirmed all eight pages return `200`, no local image/resource failures, no broken images, and no mobile horizontal overflow.
+
+## [2026-06-14] - Futuristic Loader, Reveals, and Energy Motion
+
+**What changed:**
+- Added a first-session homepage loader with SVG circuit trace, boot status lines, centered `VORTIQ DYNAMICS` wordmark, bottom progress bar, sessionStorage skip behavior, and reduced-motion fallback.
+- Added a shared top progress line and faster fade/scale page transitions for same-origin internal HTML navigation.
+- Reworked the scroll reveal system into `spark`, `flow`, `circuit`, and mobile `pulse` modes using the existing `.reveal` + `IntersectionObserver` contract.
+- Added CSS-only ambient energy motion for `.section.dark` sections, paused outside the viewport.
+- Added energy-themed hover interactions for service cards, feature cards, nav links, and CTA buttons.
+- Synced all source changes from [project](./project) into [publish](./publish).
+
+**Why:**
+- Make the site feel more futuristic and system-driven while staying no-build, dependency-free, responsive, and respectful of reduced-motion preferences.
+
+**Verification:**
+- `node --check project/assets/js/site.js`
+- `node --check project/assets/js/data.js`
+- Local static server on port `4173`
+- Playwright local verification confirmed all eight pages return `200`, loader plays once and skips on same-session reload, internal page transition state activates before navigation, reduced-motion reveals content immediately, mobile reveal mode switches to `pulse`, and mobile width has no horizontal overflow.
+- Homepage scroll verification confirmed all 46 reveal elements reach `is-revealed`.
+- Updated screenshots: [docs/verification/futuristic-home-desktop.png](./docs/verification/futuristic-home-desktop.png), [docs/verification/futuristic-home-mobile.png](./docs/verification/futuristic-home-mobile.png).
+
 ## [2026-06-13] - B2B Modernization & Apple-Level Polish
 
 **What changed:**
