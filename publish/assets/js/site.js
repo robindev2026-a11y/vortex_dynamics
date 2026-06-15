@@ -90,7 +90,12 @@
 
   function serviceCard(service, index) {
     return `
+<<<<<<< Updated upstream
       <article class="service-card reveal" data-reveal="flow" id="${service.id}" style="--delay:${index * 70}ms">
+=======
+      <article class="service-card reveal" id="${service.id}" style="--delay:${index * 70}ms">
+        ${service.image ? `<img class="service-card-image" src="${service.image}" alt="${escapeHtml(service.title)}">` : ""}
+>>>>>>> Stashed changes
         <div class="icon-box">${iconMap[service.icon] || iconMap.chip}</div>
         <h3>${service.title}</h3>
         <p>${service.description}</p>

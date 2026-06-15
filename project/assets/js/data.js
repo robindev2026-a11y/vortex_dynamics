@@ -91,10 +91,17 @@ window.VORTIQ_DATA = {
       id: "integration-room",
       title: "Product Integration Room",
       category: "Systems R&D",
+<<<<<<< Updated upstream:project/assets/js/data.js
       description: "Our core systems integration environment where physical electronics, custom firmware, cloud backend layers, and interactive interfaces are connected. It supports end-to-end telemetry testing, drone hardware calibration, sensor fusion verification, and regression tests under full operational loads.",
       image: "assets/images/rd-product-integration.webp",
       alt: "Drone assembly and testing on a development workbench",
       tags: ["Sensor Fusion", "Edge Systems", "Integration", "HIL Testing", "Telemetry Verification"],
+=======
+      description: "A central view of architecture planning, prototype review, device testing, and platform integration.",
+      image: "assets/images/R&D_room/dronepic2.png",
+      alt: "Drone sensor fusion module with connected sensing components",
+      tags: ["Sensor Fusion", "Edge Systems", "Integration"],
+>>>>>>> Stashed changes:site/assets/js/data.js
       featured: true
     },
     {

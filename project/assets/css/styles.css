@@ -613,6 +613,29 @@ textarea {
   box-shadow: var(--shadow);
 }
 
+<<<<<<< Updated upstream:project/assets/css/styles.css
+=======
+/* Subtle border for the About page ambient image */
+body[data-page="about"] .ambient-main {
+  border: 1px solid rgba(62, 209, 111, 0.08);
+  box-shadow: 0 20px 60px rgba(11, 31, 35, 0.14);
+  position: relative;
+  z-index: 1;
+}
+
+/* Tint overlay for the About page ambient image to match given color tones */
+body[data-page="about"] .ambient-media::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(62,209,111,0.08), rgba(0,84,97,0.04));
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  border-radius: calc(var(--radius));
+  z-index: 0;
+}
+
+>>>>>>> Stashed changes:assets/css/styles.css
 .ambient-media.compact .ambient-main {
   min-height: 180px;
 }
@@ -823,6 +846,16 @@ textarea {
   stroke-width: 1.8;
   stroke-linecap: round;
   stroke-linejoin: round;
+}
+
+.service-card-image {
+  width: 100%;
+  display: block;
+  border-radius: var(--radius);
+  margin-bottom: 18px;
+  object-fit: cover;
+  aspect-ratio: 4 / 3;
+  max-height: 220px;
 }
 
 .service-card h3,

@@ -38,13 +38,15 @@ window.VORTIQ_DATA = {
       id: "iot",
       title: "IoT Solutions",
       description: "Sensors, device connectivity, monitoring, and automation for connected operations.",
-      icon: "network"
+      icon: "network",
+      image: "assets/images/electronic/polyfram2.png"
     },
     {
       id: "cloud",
       title: "Cloud Solutions",
       description: "Cloud infrastructure, APIs, dashboards, and scalable backend systems.",
-      icon: "cloud"
+      icon: "cloud",
+      image: "assets/images/devops/cloud1.png"
     },
     {
       id: "web-apps",
@@ -91,10 +93,17 @@ window.VORTIQ_DATA = {
       id: "integration-room",
       title: "Product Integration Room",
       category: "Systems R&D",
+<<<<<<< Updated upstream
       description: "Our core systems integration environment where physical electronics, custom firmware, cloud backend layers, and interactive interfaces are connected. It supports end-to-end telemetry testing, drone hardware calibration, sensor fusion verification, and regression tests under full operational loads.",
       image: "assets/images/rd-product-integration.webp",
       alt: "Drone assembly and testing on a development workbench",
       tags: ["Sensor Fusion", "Edge Systems", "Integration", "HIL Testing", "Telemetry Verification"],
+=======
+      description: "A central view of architecture planning, prototype review, device testing, and platform integration.",
+      image: "assets/images/R&D_room/dronepic2.png",
+      alt: "Drone sensor fusion module with connected sensing components",
+      tags: ["Sensor Fusion", "Edge Systems", "Integration"],
+>>>>>>> Stashed changes
       featured: true
     },
     {

@@ -825,6 +825,16 @@ textarea {
   stroke-linejoin: round;
 }
 
+.service-card-image {
+  width: 100%;
+  display: block;
+  border-radius: var(--radius);
+  margin-bottom: 18px;
+  object-fit: cover;
+  aspect-ratio: 4 / 3;
+  max-height: 220px;
+}
+
 .service-card h3,
 .tech-card h3,
 .gallery-item h3 {
