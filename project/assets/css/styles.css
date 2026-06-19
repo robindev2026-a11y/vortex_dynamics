@@ -778,10 +778,18 @@ textarea {
 .tech-card,
 .case-card,
 .gallery-item,
-.process-step,
 .faq-item,
 .feature-card {
   border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  transition: var(--transition-premium);
+}
+
+.process-step {
+  border: none;
+  border-left: 4px solid var(--green);
   border-radius: var(--radius);
   background: var(--bg-card);
   backdrop-filter: blur(12px);
@@ -803,6 +811,14 @@ textarea {
   border-color: var(--mint);
   background: var(--bg-card-hover);
   box-shadow: 0 20px 40px rgba(0, 245, 155, 0.08);
+}
+
+.process-step:hover {
+  border-left-color: var(--green);
+}
+
+.process-step.reveal[data-reveal="flow"]::before {
+  display: none;
 }
 
 .icon-box {

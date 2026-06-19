@@ -81,7 +81,7 @@ window.VORTIQ_DATA = {
     { title: "Hardware", detail: "Electronics, sensors, PCB planning" },
     { title: "Firmware", detail: "RTOS, microcontrollers, device logic" },
     { title: "IoT", detail: "Connectivity, telemetry, remote control" },
-    { title: "Cloud", detail: "APIs, Docker, Kubernetes, infrastructure" },
+    { title: "Cloud Enterprise Solutions", detail: "APIs, Docker, Kubernetes, infrastructure" },
     { title: "Dashboard", detail: "Monitoring, reporting, admin panels" },
     { title: "Mobile App", detail: "Field apps, customer apps, operations" },
     { title: "Edge AI", detail: "Vision, prediction, autonomous intelligence" }
@@ -157,12 +157,10 @@ window.VORTIQ_DATA = {
     }
   ],
   techStack: [
-    { title: "Cloud", items: ["AWS", "Azure", "Google Cloud", "Cloudflare"] },
+    { title: "Cloud Enterprise Solutions", items: ["AWS", "Azure", "Google Cloud", "Cloudflare"] },
     { title: "IoT/Embedded", items: ["RTOS", "IoT", "Hardware", "PCB Designing", "Firmware"] },
     { title: "AI/Edge AI", items: ["Edge AI Products", "Autonomous Navigation", "ADAS"] },
-    { title: "Mobile", items: ["Flutter", "React Native", "Android"] },
-    { title: "Frontend", items: ["React", "Next.js", "HTML", "CSS"] },
-    { title: "Backend", items: ["Node.js", "Python", "APIs"] }
+    { title: "Mobile", items: ["Flutter", "React Native", "Android", "iOS"] }
   ],
   caseStudies: [
     {
