@@ -38,7 +38,7 @@
     mount.innerHTML = `
       <header class="site-header" data-site-header>
         <a class="brand" href="index.html" aria-label="${data.site.name} home">
-          <span class="brand-mark">VD</span>
+          <img src="assets/images/logo.png" alt="${data.site.name} logo" class="brand-logo" width="60" height="60">
           <span>${data.site.name}</span>
         </a>
         <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
@@ -63,7 +63,7 @@
       <footer class="site-footer">
         <div class="footer-brand">
           <a class="brand" href="index.html">
-            <span class="brand-mark">VD</span>
+            <img src="assets/images/logo.png" alt="${data.site.name} logo" class="brand-logo" width="60" height="60">
             <span>${data.site.name}</span>
           </a>
           <p>${data.site.tagline}</p>
@@ -142,22 +142,6 @@
                   ${item.tags.map((tag) => `<em>${escapeHtml(tag)}</em>`).join("")}
                 </div>
               </div>
-            </article>
-          `
-        )
-        .join("");
-    });
-  }
-
-  function renderProcess() {
-    document.querySelectorAll("[data-render='process']").forEach((mount) => {
-      mount.innerHTML = data.process
-        .map(
-          (item, index) => `
-            <article class="process-step reveal" data-reveal="flow" style="--delay:${index * 80}ms">
-              <span>Step ${index + 1}</span>
-              <h3>${item.title}</h3>
-              <p>${item.description}</p>
             </article>
           `
         )
@@ -707,7 +691,7 @@
       
       <div class="chatbot-window" style="display:none">
         <div class="chatbot-header">
-          <span class="brand-mark">VD</span>
+          <img src="assets/images/logo.png" alt="Vortiq logo" class="brand-logo" width="60" height="60">
           <div>
             <h4>Vortiq Assistant</h4>
             <span>Online • Engineering Agent</span>
@@ -857,7 +841,6 @@
   renderServices();
   renderFlow();
   renderRDLab();
-  renderProcess();
   renderTechStack();
   renderCaseStudies();
   initGalleryCarousel();

@@ -14,7 +14,6 @@ window.VORTIQ_DATA = {
   nav: [
     { label: "Home", href: "index.html", id: "home" },
     { label: "Services", href: "services.html", id: "services" },
-    { label: "Solutions", href: "solutions.html", id: "solutions" },
     { label: "About", href: "about.html", id: "about" },
     { label: "Careers", href: "careers.html", id: "careers" },
     { label: "Contact", href: "contact.html", id: "contact" }
