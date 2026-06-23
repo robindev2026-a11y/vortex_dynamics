@@ -1267,7 +1267,7 @@ textarea {
   }
 
   .brand span:last-child {
-    max-width: 150px;
+    max-width: 220px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
