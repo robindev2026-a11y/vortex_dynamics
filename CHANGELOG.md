@@ -1,5 +1,19 @@
 # CHANGELOG - Vortiq Dynamics
 
+## [2026-06-23] - Logo Spacing Optimization
+
+**What changed:**
+- Cropped the empty transparent margin area surrounding the letter 'V' symbol in `project/assets/images/logo.png` from `(1024, 1024)` to `(628, 721)`.
+- Added a 5% margin buffer when cropping to prevent visual clipping of the logo symbol shadow.
+- Changed the CSS `gap` property in the `.brand` style rule in `project/assets/css/styles.css` from `4px` to `0` to set the spacing between the logo and company name text to `0px`.
+- Synced the updated logo image asset and CSS into the `publish/` directory.
+
+**Why:**
+- Reduce the visual whitespace and gap between the logo symbol and the company name ("Vortiq Dynamics") in the site header, footer, and chatbot.
+
+**Verification:**
+- Ran a local HTTP server and inspected the layout with the browser agent. Visual check confirmed the spacing looks balanced, clean, and professional on all viewports with a 0px gap.
+
 ## [2026-06-14] - Image Loading Optimization
 
 **What changed:**

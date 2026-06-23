@@ -39,7 +39,7 @@
       <header class="site-header" data-site-header>
         <a class="brand" href="index.html" aria-label="${data.site.name} home">
           <img src="assets/images/logo.png" alt="${data.site.name} logo" class="brand-logo" width="60" height="60">
-          <span>${data.site.name}</span>
+          <span class="brand-name">${data.site.name}</span>
         </a>
         <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
           <span></span><span></span><span></span>
@@ -64,7 +64,7 @@
         <div class="footer-brand">
           <a class="brand" href="index.html">
             <img src="assets/images/logo.png" alt="${data.site.name} logo" class="brand-logo" width="60" height="60">
-            <span>${data.site.name}</span>
+            <span class="brand-name">${data.site.name}</span>
           </a>
           <p>${data.site.tagline}</p>
         </div>

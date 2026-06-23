@@ -130,7 +130,7 @@ textarea {
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 11px;
+  gap: 0;
   min-width: max-content;
   font-weight: 800;
 }
@@ -153,6 +153,11 @@ textarea {
   height: 60px;
   object-fit: contain;
   border-radius: var(--radius);
+}
+
+.brand-name {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 20px;
 }
 
 .site-nav {

@@ -2,6 +2,18 @@
 
 Important project decisions and their rationale.
 
+## 2026-06-23 - Crop Company Logo and Set Spacing to 0px
+
+**Decision:** Crop the company logo image (`logo.png`) to remove excessive transparent padding on the outer margins, and change the CSS logo spacing `gap` to `0` in the `.brand` style rule.
+
+**Context:** The visual spacing between the logo symbol (the letter 'V' graphic) and the company name ("Vortiq Dynamics") in the header, footer, and chatbot was too wide due to empty space around the logo symbol inside the source image.
+
+**Rationale:** Trimming the transparent boundary from `(1024, 1024)` to `(628, 721)` (including a small 5% buffer to prevent visual clipping) and setting `gap: 0` in CSS resolves the spacing issue completely, alignment is balanced and clean.
+
+**Alternatives considered:** Using negative margin CSS. This was rejected because the logo is rendered in multiple contexts (header, footer, chatbot window), and adjusting CSS everywhere would add unnecessary code complexity.
+
+**Tradeoffs:** The logo is now rectangular instead of square, but the HTML/CSS `object-fit: contain` handles the aspect ratio correctly without distortion.
+
 ## 2026-06-14 - Implement Futuristic Motion With Native CSS And Vanilla JS
 
 **Decision:** Add the homepage loader, reveal variants, page transition bar, ambient dark-section energy motion, and hover micro-interactions using only existing HTML, CSS, and vanilla JavaScript.

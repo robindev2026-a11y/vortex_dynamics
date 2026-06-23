@@ -159,7 +159,11 @@ Local verification completed after the static build:
 - R&D Lab desktop screenshot: [docs/verification/home-rd-lab-desktop.png](../verification/home-rd-lab-desktop.png)
 - R&D Lab mobile screenshot: [docs/verification/home-rd-lab-mobile.png](../verification/home-rd-lab-mobile.png)
 - Futuristic animation desktop screenshot: [docs/verification/futuristic-home-desktop.png](../verification/futuristic-home-desktop.png)
-- Futuristic animation mobile screenshot: [docs/verification/futuristic-home-mobile.png](../verification/futuristic-home-mobile.png)
+- Logo spacing verification completed on 2026-06-23:
+  - Cropped the logo image `logo.png` from (1024, 1024) to (628, 721) to remove excess transparent padding.
+  - Set the CSS `gap` property in `.brand` class to `0` in `project/assets/css/styles.css`.
+  - Verified layout using local HTTP server and browser subagent. Spacing looks balanced and cleanly aligned with company name "Vortiq Dynamics" with a 0px gap.
+  - Synced assets from `project/` to `publish/`.
 
 ## Open Issues / Next Plan
 
