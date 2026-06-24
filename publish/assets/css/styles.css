@@ -1682,6 +1682,11 @@ textarea {
   }
   .carousel-nav button {
     opacity: 0.88;
+    top: 140px; /* half of 280px image row — keeps arrows inside the photo */
+    transform: translateY(-50%);
+  }
+  .carousel-nav button:hover {
+    transform: translateY(-50%) scale(1.08);
   }
   .carousel-prev {
     left: 10px;
