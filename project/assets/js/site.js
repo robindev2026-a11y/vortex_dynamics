@@ -343,6 +343,9 @@
       const open = toggle.getAttribute("aria-expanded") === "true";
       toggle.setAttribute("aria-expanded", String(!open));
       document.body.classList.toggle("nav-open", !open);
+      if (!open) {
+        window.menuOpenScrollY = window.scrollY;
+      }
     });
     nav.addEventListener("click", (event) => {
       if (event.target.closest("a")) {
@@ -355,7 +358,18 @@
   function initHeaderScroll() {
     const header = document.querySelector("[data-site-header]");
     if (!header) return;
-    const update = () => header.classList.toggle("is-scrolled", window.scrollY > 12);
+    const toggle = document.querySelector(".nav-toggle");
+    const update = () => {
+      header.classList.toggle("is-scrolled", window.scrollY > 12);
+      if (document.body.classList.contains("nav-open") && typeof window.menuOpenScrollY === "number") {
+        if (Math.abs(window.scrollY - window.menuOpenScrollY) > 10) {
+          document.body.classList.remove("nav-open");
+          if (toggle) {
+            toggle.setAttribute("aria-expanded", "false");
+          }
+        }
+      }
+    };
     update();
     window.addEventListener("scroll", update, { passive: true });
   }
