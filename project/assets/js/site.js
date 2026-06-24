@@ -633,8 +633,16 @@
 
       const isSameOrigin = destination.origin === window.location.origin;
       const isHtmlPage = destination.pathname.endsWith(".html") || destination.pathname.endsWith("/");
-      const isSamePageAnchor = destination.pathname === window.location.pathname && destination.hash;
-      if (!isSameOrigin || !isHtmlPage || isSamePageAnchor) return;
+      
+      const isSamePage = destination.pathname === window.location.pathname && destination.search === window.location.search;
+      if (!isSameOrigin || !isHtmlPage) return;
+
+      if (isSamePage) {
+        if (destination.hash === window.location.hash) {
+          event.preventDefault();
+        }
+        return;
+      }
 
       if (reducedMotion) {
         window.location.href = destination.href;
