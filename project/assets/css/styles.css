@@ -1057,11 +1057,21 @@ textarea {
 }
 
 /* Contact Channel Cards */
+.contact-section-title {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+
 .contact-channels {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin: 18px 0;
+  margin: 8px 0 0;
 }
 
 .contact-channel-card {

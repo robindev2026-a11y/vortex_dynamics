@@ -95,7 +95,12 @@
               <a href="mailto:${e.address}">${e.address}</a>
             </p>
           `).join("")}
-          <p><a href="tel:${data.site.phone.replaceAll(" ", "")}">${data.site.phone}</a></p>
+          ${(data.site.phones || [{ label: "", number: data.site.phone }]).map((p) => `
+            <p class="footer-email-row">
+              <span class="footer-email-label">${p.label}</span>
+              <a href="tel:${p.number.replaceAll(" ", "")}">${p.number}</a>
+            </p>
+          `).join("")}
           <p>${data.site.location}</p>
           <div class="social-links">${socialLinks}</div>
         </div>
@@ -591,7 +596,7 @@
 
   function initContactInfo() {
     const channelsMount = document.querySelector("[data-contact-channels]");
-    const phoneLink = document.querySelector("[data-contact-phone]");
+    const phonesMount = document.querySelector("[data-contact-phones]");
     const locationSpan = document.querySelector("[data-contact-location]");
 
     if (channelsMount && data.site.emails) {
@@ -604,10 +609,15 @@
       `).join("");
     }
 
-    if (phoneLink) {
-      phoneLink.href = `tel:${data.site.phone.replaceAll(" ", "")}`;
-      phoneLink.textContent = data.site.phone;
+    if (phonesMount && data.site.phones) {
+      phonesMount.innerHTML = data.site.phones.map((p) => `
+        <a class="contact-channel-card" href="tel:${p.number.replaceAll(" ", "")}">
+          <span class="channel-label">${p.label}</span>
+          <span class="channel-address">${p.number}</span>
+        </a>
+      `).join("");
     }
+
     if (locationSpan) {
       locationSpan.textContent = data.site.location;
     }
