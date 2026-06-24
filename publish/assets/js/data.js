@@ -195,7 +195,7 @@ window.VORTIQ_DATA = {
     {
       title: "PCB Testing & Calibration",
       category: "Hardware",
-      image: "assets/images/gallery-pcb-calibration.webp",
+      image: "assets/images/pcb-calibration.png",
       description: "Development board testing. Engineers calibrate sensor communication interfaces and flash custom firmware onto microcontrollers under HIL simulations.",
       alt: "Close-up of custom electronic development board connected to multimeters and debugger lines"
     },
