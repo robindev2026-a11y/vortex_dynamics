@@ -104,7 +104,7 @@
           <p>${data.site.location}</p>
           <div class="social-links">${socialLinks}</div>
         </div>
-        <div class="footer-bottom">Copyright ${new Date().getFullYear()} ${data.site.name}. All rights reserved.</div>
+        <div class="footer-bottom">&copy; ${new Date().getFullYear()} ${data.site.name}&trade;. All rights reserved.</div>
       </footer>
     `;
   }
