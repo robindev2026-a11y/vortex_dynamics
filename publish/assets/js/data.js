@@ -7,7 +7,7 @@ window.VORTIQ_DATA = {
     location: "India / Global project delivery",
     social: [
       { label: "LinkedIn", href: "#" },
-      { label: "GitHub", href: "#" },
+      { label: "Instagram", href: "#" },
       { label: "X", href: "#" }
     ]
   },
@@ -110,7 +110,7 @@ window.VORTIQ_DATA = {
       title: "Cloud & DevOps Room",
       category: "Cloud",
       description: "Dashboards, APIs, Docker/Kubernetes planning, deployments, and monitoring.",
-      image: "assets/images/rd-cloud-devops.webp",
+      image: "assets/images/rd-cloud-devolps.png",
       alt: "Server rack housing network switches and servers alongside system monitoring dashboard screens",
       tags: ["Docker", "Kubernetes", "APIs"]
     },
