@@ -89,7 +89,12 @@
         </div>
         <div>
           <h2>Contact</h2>
-          <p><a href="mailto:${data.site.email}">${data.site.email}</a></p>
+          ${data.site.emails.map((e) => `
+            <p class="footer-email-row">
+              <span class="footer-email-label">${e.label}</span>
+              <a href="mailto:${e.address}">${e.address}</a>
+            </p>
+          `).join("")}
           <p><a href="tel:${data.site.phone.replaceAll(" ", "")}">${data.site.phone}</a></p>
           <p>${data.site.location}</p>
           <div class="social-links">${socialLinks}</div>
@@ -585,14 +590,20 @@
   }
 
   function initContactInfo() {
-    const emailLink = document.querySelector("[data-contact-email]");
+    const channelsMount = document.querySelector("[data-contact-channels]");
     const phoneLink = document.querySelector("[data-contact-phone]");
     const locationSpan = document.querySelector("[data-contact-location]");
-    
-    if (emailLink) {
-      emailLink.href = `mailto:${data.site.email}`;
-      emailLink.textContent = data.site.email;
+
+    if (channelsMount && data.site.emails) {
+      channelsMount.innerHTML = data.site.emails.map((e) => `
+        <a class="contact-channel-card" href="mailto:${e.address}">
+          <span class="channel-label">${e.label}</span>
+          <span class="channel-address">${e.address}</span>
+          <span class="channel-note">${e.note}</span>
+        </a>
+      `).join("");
     }
+
     if (phoneLink) {
       phoneLink.href = `tel:${data.site.phone.replaceAll(" ", "")}`;
       phoneLink.textContent = data.site.phone;

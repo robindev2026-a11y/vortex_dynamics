@@ -1,5 +1,57 @@
 # CHANGELOG - Vortiq Dynamics
 
+## [2026-06-24] - Mobile View Fixes, Contact Channels & Asset Cleanup
+
+**What changed:**
+
+### Mobile Layout Fixes
+- Fixed horizontal gap/overflow across **all pages** on mobile viewports by tightening container padding and removing excess margin from section wrappers in `styles.css`.
+- Fixed missing **Capability Stack** layer labels (`App Layer`, `Web + Mobile UI`, `AI Layer`, `Edge Intelligence`) that were not rendering correctly on mobile.
+- Fixed `Request Quote` section header running wider than the viewport on mobile, causing a horizontal scroll.
+- Redesigned the **mobile navigation menu** with a new professional slide-in style, eliminating the overlap issue on small screens.
+- Fixed the mobile menu auto-minimising bug — the mobile nav menu no longer collapses automatically when the user scrolls down the page.
+- Fixed mobile carousel **arrow direction buttons overlapping** the card text area: repositioned arrows to `top: 140px` (50% of the 280px image height) so they stay inside the photo area and never overlay the title or category label on stacked mobile cards.
+
+### Submit Button
+- Increased the **submit button width** on the Request Quote and Contact forms so it spans the full available width on mobile, matching standard professional form design.
+
+### Navigation / Page Transition Bug Fix
+- Fixed the **contact page link not redirecting** correctly on click, and resolved a related page-blinking issue that affected all pages during internal navigation transitions.
+
+### Gallery & Image Assets
+- Replaced the **R&D Lab gallery image** for the _Cloud DevOps_ category with the new `rd-cloud-devolps.png` asset.
+- Replaced the **R&D Lab gallery image** for the _PCB Testing & Calibration_ category with the new `pcb-calibration.png` asset, and removed the old `gallery-pcb-calibration.webp` file.
+- Audited all images in `project/assets/images/`: tracked every image referenced across all HTML, JS, and CSS files and **deleted unused image assets** to keep the repo clean.
+
+### Social Icon Update
+- Replaced the **GitHub icon** in the footer social links with an **Instagram icon** (SVG inline icon, professional style) pointing to the Vortiq Dynamics Instagram presence.
+
+### Contact Channels — Email Addresses Added
+- Added `sales@vortiqdynamics.com` and `support@vortiqdynamics.com` to `data.js` as labelled email channel entries.
+- Updated the **footer renderer** in `site.js` to display both email addresses with their role labels (Sales, Support).
+- Upgraded the **Contact page info panel** in `contact.html` with professional channel cards (icon + label + email link) for both email addresses.
+- Updated `initContactInfo()` in `site.js` to render the channel card layout dynamically.
+- Added corresponding CSS for the channel card grid and footer email label styles in `styles.css`.
+
+### Sync & Deployment
+- Synced all source changes from `project/` into `publish/`.
+- Pulled latest from `main` and resolved merge conflict.
+- Pushed all changes to trigger deployment on **vortiqdynamics.com** via GitHub Pages.
+
+**Why:**
+- Resolve layout regressions and UX friction on mobile viewports that were identified through live browser inspection.
+- Give visitors clear, professional contact channels (sales and support emails) both in the footer and on the dedicated Contact page.
+- Keep the image asset folder lean by removing files no longer referenced anywhere in the site.
+
+**Verification:**
+- `node --check project/assets/js/site.js`
+- `node --check project/assets/js/data.js`
+- Local static server verified all eight pages returned `200` with no console errors.
+- Browser agent confirmed mobile arrow buttons are inside the photo area, mobile menu works correctly, contact page navigation is stable, and both email addresses appear in footer and Contact page.
+- GitHub Pages deployment triggered and live site updated on `vortiqdynamics.com`.
+
+---
+
 ## [2026-06-23] - Logo Spacing Optimization
 
 **What changed:**

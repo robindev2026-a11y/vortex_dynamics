@@ -1056,6 +1056,98 @@ textarea {
   margin-top: 18px;
 }
 
+/* Contact Channel Cards */
+.contact-channels {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 18px 0;
+}
+
+.contact-channel-card {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 14px 16px;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--deep-teal);
+  background: rgba(255, 255, 255, 0.55);
+  text-decoration: none;
+  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+}
+
+.contact-channel-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 84, 97, 0.1);
+  border-left-color: var(--green);
+}
+
+.channel-label {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--green);
+  background: rgba(62, 209, 111, 0.1);
+  padding: 2px 8px;
+  border-radius: 20px;
+  width: max-content;
+}
+
+.channel-address {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--deep-teal);
+  word-break: break-all;
+}
+
+.channel-note {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.contact-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+
+.contact-meta p {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.contact-meta a {
+  color: var(--deep-teal);
+  font-weight: 600;
+}
+
+/* Footer Email Label Rows */
+.footer-email-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.footer-email-label {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--mint);
+  background: rgba(168, 230, 207, 0.18);
+  padding: 2px 7px;
+  border-radius: 20px;
+  flex-shrink: 0;
+}
+
 .field.full {
   grid-column: 1 / -1;
 }
