@@ -20,6 +20,7 @@ The current site is a polished first version with placeholder contact details an
 - GitHub Pages: configured to deploy via GitHub Actions (workflow build type)
 - GitHub Pages build: API confirms `build_type: workflow` and successful workflow run
 - Public URL: `https://robindev2026-a11y.github.io/vortex_dynamics/`
+- Canonical SEO URL: `https://vortiqdynamics.com/`
 - Live URL verification: confirmed HTTP `200`, serving the correct interactive site homepage (not the repository README)
 - Latest deployment: successful run of `Deploy Pages` workflow deploying the `publish` directory
 
@@ -154,6 +155,14 @@ Local verification completed after the static build:
   - Original JPG/PNG photo set totaled about `5.3 MB`
   - Local browser check found no local resource failures or broken images
   - Mobile viewport still had no horizontal overflow
+- Image weight reduction completed on 2026-06-29:
+  - Replaced large runtime PNG assets with optimized WebP files
+  - Total [project/assets/images](../../project/assets/images) payload is about `1.1 MB`
+  - Removed unused large PNG files from [project](../../project) and [publish](../../publish)
+- Technical SEO baseline completed on 2026-06-30:
+  - Page-specific titles, meta descriptions, canonical URLs, Open Graph tags, and Twitter card tags are present on all eight pages
+  - Structured JSON-LD was added for organization, website, professional service, services list, and contact page
+  - [robots.txt](../../project/robots.txt) and [sitemap.xml](../../project/sitemap.xml) were added and synced to [publish](../../publish)
 - Desktop screenshot: [docs/verification/home-desktop-revealed.png](../verification/home-desktop-revealed.png)
 - Mobile screenshot: [docs/verification/home-mobile-revealed.png](../verification/home-mobile-revealed.png)
 - R&D Lab desktop screenshot: [docs/verification/home-rd-lab-desktop.png](../verification/home-rd-lab-desktop.png)

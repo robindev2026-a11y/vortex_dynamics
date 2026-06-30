@@ -2,6 +2,18 @@
 
 Important project decisions and their rationale.
 
+## 2026-06-30 - Use Custom Domain As Canonical SEO URL
+
+**Decision:** Use `https://vortiqdynamics.com/` as the canonical URL in page metadata, sitemap entries, Open Graph URLs, and structured data.
+
+**Context:** The repository is hosted through GitHub Pages, but the project includes a `CNAME` for `vortiqdynamics.com`.
+
+**Rationale:** Search engines should see one preferred public URL for the brand instead of splitting signals between the GitHub Pages URL and the custom domain.
+
+**Alternatives considered:** Use the GitHub Pages URL as canonical. This was rejected because the public brand should rank around the custom domain.
+
+**Tradeoffs:** If the custom domain changes later, all canonical metadata and sitemap URLs must be updated together.
+
 ## 2026-06-23 - Crop Company Logo and Set Spacing to 0px
 
 **Decision:** Crop the company logo image (`logo.png`) to remove excessive transparent padding on the outer margins, and change the CSS logo spacing `gap` to `0` in the `.brand` style rule.

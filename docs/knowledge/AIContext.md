@@ -9,6 +9,7 @@ Current status:
 - Static website: built
 - Futuristic animation layer: implemented on 2026-06-14
 - Runtime images: optimized to WebP on 2026-06-14
+- Technical SEO baseline: added on 2026-06-30
 - Canonical website source: [project](../../project)
 - Deployable website output: [publish](../../publish)
 - Planning docs: present
@@ -20,7 +21,8 @@ Current status:
 - GitHub Pages deployment source needs confirmation after the root cleanup.
 - Latest known live verification: HTTP `200`; page contains `Vortiq Dynamics`; R&D Lab content and `drone-sensor-fusion-module.png` reference were published
 - Latest local animation verification: all eight pages returned `200`; homepage loader plays once per session; internal transition state activates before navigation; all 46 homepage reveal elements reached `is-revealed`; mobile used `pulse` reveal mode with no horizontal overflow; reduced-motion content became visible immediately.
-- Latest local image verification: runtime photo assets load from WebP references; local browser check found no broken images or local resource failures; WebP photo set is about `924 KB` versus about `5.3 MB` for the original JPG/PNG set.
+- Latest local image verification: runtime photo assets load from WebP references; large PNG runtime assets were replaced on 2026-06-29; [project/assets/images](../../project/assets/images) is now about `1.1 MB` total.
+- Latest local SEO verification: all eight pages have canonical URLs and social metadata; homepage, services, and contact pages include valid JSON-LD; [project/robots.txt](../../project/robots.txt) and [project/sitemap.xml](../../project/sitemap.xml) are present and synced to [publish](../../publish).
 
 ## Active Priorities
 
@@ -38,6 +40,7 @@ Current status:
 - The hero direction is abstract PCB/cloud animation with a typewriter effect.
 - Homepage now includes a first-session boot loader, themed reveal variants (`spark`, `flow`, `circuit`, mobile `pulse`), same-origin page transition bar, and subtle ambient motion on dark sections.
 - Do not switch runtime image references back from WebP to JPG/PNG unless a specific fallback strategy is added.
+- Use `https://vortiqdynamics.com/` as the canonical public URL for SEO metadata and sitemap entries.
 - Homepage includes an `Inside the Vortiq R&D Lab` showcase after Capability Flow and before Services.
 - All seven services must stay equally visible: IoT Solutions, Cloud Solutions, Web Applications, Mobile Applications, Websites, Embedded Systems, Edge AI.
 - The admin panel is planned for later; current work should preserve admin-ready data structures without building admin features prematurely.

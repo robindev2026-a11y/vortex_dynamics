@@ -118,7 +118,7 @@ window.VORTIQ_DATA = {
       title: "Cloud & DevOps Room",
       category: "Cloud",
       description: "Dashboards, APIs, Docker/Kubernetes planning, deployments, and monitoring.",
-      image: "assets/images/rd-cloud-devolps.png",
+      image: "assets/images/rd-cloud-devops.webp",
       alt: "Server rack housing network switches and servers alongside system monitoring dashboard screens",
       tags: ["Docker", "Kubernetes", "APIs"]
     },
@@ -203,7 +203,7 @@ window.VORTIQ_DATA = {
     {
       title: "PCB Testing & Calibration",
       category: "Hardware",
-      image: "assets/images/pcb-calibration.png",
+      image: "assets/images/pcb-calibration.webp",
       description: "Development board testing. Engineers calibrate sensor communication interfaces and flash custom firmware onto microcontrollers under HIL simulations.",
       alt: "Close-up of custom electronic development board connected to multimeters and debugger lines"
     },

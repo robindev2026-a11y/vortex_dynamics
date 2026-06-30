@@ -38,7 +38,7 @@
     mount.innerHTML = `
       <header class="site-header" data-site-header>
         <a class="brand" href="index.html" aria-label="${data.site.name} home">
-          <img src="assets/images/logo.png" alt="${data.site.name} logo" class="brand-logo" width="60" height="60">
+          <img src="assets/images/logo.webp" alt="${data.site.name} logo" class="brand-logo" width="60" height="60">
           <span class="brand-name">${data.site.name}</span>
         </a>
         <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
@@ -74,7 +74,7 @@
       <footer class="site-footer">
         <div class="footer-brand">
           <a class="brand" href="index.html">
-            <img src="assets/images/logo.png" alt="${data.site.name} logo" class="brand-logo" width="60" height="60">
+            <img src="assets/images/logo.webp" alt="${data.site.name} logo" class="brand-logo" width="60" height="60">
             <span class="brand-name">${data.site.name}</span>
           </a>
           <p>${data.site.tagline}</p>
@@ -745,7 +745,7 @@
       
       <div class="chatbot-window" style="display:none">
         <div class="chatbot-header">
-          <img src="assets/images/logo.png" alt="Vortiq logo" class="brand-logo" width="60" height="60">
+          <img src="assets/images/logo.webp" alt="Vortiq logo" class="brand-logo" width="60" height="60">
           <div>
             <h4>Vortiq Assistant</h4>
             <span>Online • Engineering Agent</span>

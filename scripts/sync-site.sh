@@ -16,8 +16,20 @@ PAGES=(
   request-quote.html
 )
 
+ROOT_FILES=(
+  CNAME
+  robots.txt
+  sitemap.xml
+)
+
 for page in "${PAGES[@]}"; do
   cp "$PROJECT_DIR/$page" "$PUBLISH_DIR/$page"
+done
+
+for file in "${ROOT_FILES[@]}"; do
+  if [[ -f "$PROJECT_DIR/$file" ]]; then
+    cp "$PROJECT_DIR/$file" "$PUBLISH_DIR/$file"
+  fi
 done
 
 rm -rf "$PUBLISH_DIR/assets"

@@ -1,5 +1,46 @@
 # CHANGELOG - Vortiq Dynamics
 
+## [2026-06-30] - Technical SEO Baseline Added
+
+**What changed:**
+- Added page-specific SEO titles and meta descriptions across all eight pages.
+- Added canonical URLs using the custom domain `https://vortiqdynamics.com/`.
+- Added Open Graph and Twitter card metadata for richer social/search previews.
+- Added structured JSON-LD data for the organization, website, professional services, service list, and contact page.
+- Added [robots.txt](./project/robots.txt) and [sitemap.xml](./project/sitemap.xml).
+- Synced all SEO updates from [project](./project) into [publish](./publish).
+
+**Why:**
+- Help search engines crawl, understand, and display Vortiq Dynamics pages more accurately for relevant technology-service searches.
+
+**Verification:**
+- `node --check project/assets/js/site.js`
+- `node --check project/assets/js/data.js`
+- Validated [project/sitemap.xml](./project/sitemap.xml) as XML.
+- Validated all JSON-LD blocks parse as JSON.
+- Local static server confirmed all eight pages, [robots.txt](./project/robots.txt), [sitemap.xml](./project/sitemap.xml), and key optimized image assets returned `200`.
+
+## [2026-06-29] - Runtime Image Weight Reduction
+
+**What changed:**
+- Converted newly added large PNG runtime assets to optimized WebP:
+  - `edgeai.png` -> `edgeai.webp`
+  - `pcb-calibration.png` -> `pcb-calibration.webp`
+  - `rd-cloud-devolps.png` -> `rd-cloud-devops.webp`
+  - `logo.png` -> `logo.webp`
+- Updated HTML and JavaScript image references to use the optimized WebP files.
+- Removed the unused large PNG files from [project](./project) and [publish](./publish).
+
+**Why:**
+- Keep page loading and scrolling smooth by reducing image payload and decode cost.
+
+**Verification:**
+- Total [project/assets/images](./project/assets/images) payload reduced from about `7.6 MB` to about `1.1 MB`.
+- `node --check project/assets/js/site.js`
+- `node --check project/assets/js/data.js`
+- Verified all referenced image assets exist.
+- Confirmed [project](./project) and [publish](./publish) are in sync.
+
 ## [2026-06-24] - Mobile View Fixes, Contact Channels & Asset Cleanup
 
 **What changed:**
