@@ -246,9 +246,9 @@ textarea {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(360px, 0.92fr);
+  grid-template-columns: 1.2fr minmax(360px, 0.8fr);
   align-items: center;
-  gap: 54px;
+  gap: 48px;
   width: min(calc(100% - 36px), var(--max));
   margin: 0 auto;
 }
@@ -279,8 +279,35 @@ textarea {
 }
 
 .hero h1 {
-  max-width: 760px;
-  font-size: clamp(3rem, 7vw, 6.8rem);
+  max-width: 740px;
+  font-size: clamp(1.8rem, 3.4vw, 2.4rem);
+  font-family: 'Space Grotesk', var(--font-heading);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  /* nowrap only on desktop — applied in @media below */
+}
+
+@media (min-width: 1180px) {
+  .hero h1 {
+    white-space: nowrap;
+  }
+}
+
+.hero-title-line-1 {
+  display: block;
+  font-size: 1em;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: -0.02em;
+  margin-bottom: 2px;
+}
+
+.hero-title-line-2 {
+  display: block;
+  font-size: 1em;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: -0.02em;
 }
 
 .hero-subtext {
@@ -1382,8 +1409,24 @@ textarea {
     min-height: auto;
   }
 
+  /* Tablet: show system map below text, compact and properly positioned */
   .hero-visual {
-    min-height: 520px;
+    min-height: auto;
+    width: 100%;
+  }
+
+  .system-panel {
+    position: relative;
+    inset: auto;
+    min-height: auto;
+    padding: 20px;
+    margin-top: 0;
+    max-width: 640px;
+    margin-inline: auto;
+  }
+
+  .circuit-map {
+    height: 200px;
   }
 
   .flow-track {
@@ -1493,23 +1536,17 @@ textarea {
   }
 
   .hero h1 {
-    font-size: clamp(2.7rem, 13vw, 4.8rem);
+    font-size: clamp(2rem, 8vw, 3rem);
+    white-space: normal;
   }
 
   .hero-proof {
     grid-template-columns: 1fr;
   }
 
+  /* Mobile: hide system map, text-only hero */
   .hero-visual {
-    min-height: auto;
-  }
-
-  .system-panel {
-    position: relative;
-    inset: auto;
-    min-height: auto;
-    padding: 16px;
-    margin-top: 20px;
+    display: none;
   }
 
   .form-grid,
@@ -1608,6 +1645,7 @@ textarea {
     grid-column: 1 / -1;
   }
 }
+
 
 @media (prefers-reduced-motion: reduce) {
   *,
