@@ -246,11 +246,29 @@ textarea {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(360px, 0.92fr);
   align-items: center;
-  gap: 54px;
-  width: min(calc(100% - 36px), var(--max));
+  width: 100%;
+  min-height: 620px;
+  padding: 46px clamp(18px, 6vw, 130px);
   margin: 0 auto;
+  isolation: isolate;
+}
+
+.hero-inner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(11, 31, 35, 0.94) 0%, rgba(11, 31, 35, 0.82) 34%, rgba(11, 31, 35, 0.34) 72%, rgba(11, 31, 35, 0.6) 100%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: min(100%, 1080px);
+  max-width: 1080px;
 }
 
 .eyebrow {
@@ -278,9 +296,23 @@ textarea {
   box-shadow: 0 0 20px rgba(62, 209, 111, 0.74);
 }
 
-.hero h1 {
-  max-width: 760px;
-  font-size: clamp(3rem, 7vw, 6.8rem);
+.hero-title {
+  max-width: 1080px;
+  font-size: 5rem;
+  line-height: 0.98;
+  letter-spacing: 0;
+  text-shadow: 0 18px 46px rgba(0, 0, 0, 0.42);
+}
+
+.hero-title-line {
+  display: block;
+  max-width: 100%;
+  text-wrap: balance;
+}
+
+.hero-title-line + .hero-title-line {
+  margin-top: 0.06em;
+  color: var(--mint);
 }
 
 .hero-subtext {
@@ -292,11 +324,13 @@ textarea {
 
 .type-line {
   display: inline-flex;
+  max-width: 100%;
   min-height: 32px;
   margin-top: 24px;
   color: var(--mint);
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   font-size: 0.98rem;
+  overflow-wrap: anywhere;
 }
 
 .type-line::after {
@@ -341,20 +375,28 @@ textarea {
 }
 
 .hero-visual {
-  position: relative;
-  min-height: 560px;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  min-height: 100%;
+  pointer-events: none;
 }
 
 .system-panel {
   position: absolute;
-  inset: 42px 0 auto;
-  min-height: 420px;
-  padding: 24px;
+  inset: 0;
+  width: 100%;
+  min-height: 100%;
+  padding: 48px clamp(18px, 6vw, 130px) 36px;
   background: rgba(251, 245, 221, 0.08);
-  border: 1px solid rgba(168, 230, 207, 0.28);
-  border-radius: var(--radius);
+  border: 1px solid rgba(168, 230, 207, 0.22);
+  border-inline: 0;
+  border-radius: 0;
   box-shadow: 0 24px 80px rgba(0, 0, 0, 0.32);
   backdrop-filter: blur(12px);
+  opacity: 0.68;
+  overflow: hidden;
+  transform: none;
 }
 
 .system-header {
@@ -362,6 +404,8 @@ textarea {
   align-items: center;
   justify-content: space-between;
   gap: 16px;
+  width: min(860px, 56vw);
+  margin-left: auto;
   color: var(--mint);
   font-size: 0.84rem;
   font-weight: 800;
@@ -389,9 +433,10 @@ textarea {
 }
 
 .circuit-map {
-  width: 100%;
+  width: min(860px, 58vw);
   height: 300px;
   margin-top: 26px;
+  margin-left: auto;
 }
 
 .trace {
@@ -425,6 +470,8 @@ textarea {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
+  width: min(820px, 58vw);
+  margin-left: auto;
 }
 
 .metric {
@@ -1372,7 +1419,6 @@ textarea {
     font-size: 0.86rem;
   }
 
-  .hero-inner,
   .split,
   .form-layout {
     grid-template-columns: 1fr;
@@ -1382,8 +1428,28 @@ textarea {
     min-height: auto;
   }
 
+  .hero-inner {
+    min-height: 600px;
+    padding-block: 34px;
+  }
+
+  .hero-title {
+    max-width: 900px;
+    font-size: 4.3rem;
+  }
+
   .hero-visual {
-    min-height: 520px;
+    min-height: 100%;
+  }
+
+  .system-panel {
+    width: 100%;
+  }
+
+  .system-header,
+  .circuit-map,
+  .dashboard-stack {
+    width: min(740px, 76vw);
   }
 
   .flow-track {
@@ -1488,12 +1554,35 @@ textarea {
   }
 
   .hero-inner {
-    width: min(calc(100% - 36px), var(--max));
-    gap: 34px;
+    width: 100%;
+    min-height: 650px;
+    padding: 22px 18px 36px;
   }
 
-  .hero h1 {
-    font-size: clamp(2.7rem, 13vw, 4.8rem);
+  .hero-inner::after {
+    background:
+      linear-gradient(180deg, rgba(11, 31, 35, 0.94) 0%, rgba(11, 31, 35, 0.78) 58%, rgba(11, 31, 35, 0.52) 100%);
+  }
+
+  .hero-content {
+    padding-top: 4px;
+  }
+
+  .hero-title {
+    font-size: 3.15rem;
+    line-height: 1.03;
+  }
+
+  .hero-subtext {
+    margin-top: 20px;
+    font-size: 1rem;
+  }
+
+  .type-line {
+    display: flex;
+    align-items: center;
+    min-height: 52px;
+    margin-top: 18px;
   }
 
   .hero-proof {
@@ -1501,15 +1590,24 @@ textarea {
   }
 
   .hero-visual {
-    min-height: auto;
+    min-height: 100%;
   }
 
   .system-panel {
-    position: relative;
-    inset: auto;
-    min-height: auto;
-    padding: 16px;
-    margin-top: 20px;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    max-height: none;
+    padding: 20px 18px 12px;
+    opacity: 0.28;
+    transform: none;
+  }
+
+  .system-header,
+  .circuit-map,
+  .dashboard-stack {
+    width: 100%;
+    max-width: 100%;
   }
 
   .form-grid,
@@ -2583,6 +2681,42 @@ html.lenis, html.lenis body {
 
 /* Mobile adjustments */
 @media (max-width: 480px) {
+  .hero {
+    padding-top: 154px;
+  }
+
+  .hero-inner {
+    width: 100%;
+    min-height: 660px;
+    padding-inline: 14px;
+  }
+
+  .eyebrow {
+    margin-bottom: 16px;
+    font-size: 0.72rem;
+  }
+
+  .hero-title {
+    font-size: 2.55rem;
+  }
+
+  .hero-actions {
+    gap: 10px;
+    margin-top: 26px;
+  }
+
+  .hero-actions .btn {
+    flex: 1 1 190px;
+  }
+
+  .system-panel {
+    padding-inline: 14px;
+  }
+
+  .circuit-map {
+    height: 230px;
+  }
+
   .chatbot-window {
     width: min(calc(100vw - 32px), 340px);
     height: 420px;
