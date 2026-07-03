@@ -47,6 +47,7 @@
         </button>
         <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
           ${nav}
+          <a class="nav-cta" href="request-quote.html">Request Quote</a>
         </nav>
         <a class="header-cta" href="request-quote.html">Request Quote</a>
       </header>
@@ -89,19 +90,28 @@
         </div>
         <div>
           <h2>Contact</h2>
-          ${data.site.emails.map((e) => `
-            <p class="footer-email-row">
-              <span class="footer-email-label">${e.label}</span>
-              <a href="mailto:${e.address}">${e.address}</a>
-            </p>
-          `).join("")}
-          ${(data.site.phones || [{ label: "", number: data.site.phone }]).map((p) => `
-            <p class="footer-email-row">
-              <span class="footer-email-label">${p.label}</span>
-              <a href="tel:${p.number.replaceAll(" ", "")}">${p.number}</a>
-            </p>
-          `).join("")}
-          <p>${data.site.location}</p>
+          <div class="footer-contact-groups">
+            ${data.site.emails.map((e) => {
+              const phone = (data.site.phones || []).find(p => p.label === e.label);
+              return `
+            <div class="footer-contact-dept">
+              <span class="footer-dept-label">${e.label}</span>
+              <a class="footer-contact-row" href="mailto:${e.address}">
+                <span class="footer-contact-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                </span>
+                <span>${e.address}</span>
+              </a>
+              ${phone ? `
+              <a class="footer-contact-row" href="tel:${phone.number.replaceAll(" ", "")}">
+                <span class="footer-contact-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.18 6.18l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.73 16.92z"/></svg>
+                </span>
+                <span>${phone.number}</span>
+              </a>` : ""}
+            </div>`;
+            }).join("")}
+          </div>
           <div class="social-links">${socialLinks}</div>
         </div>
         <div class="footer-bottom">Copyright &copy;${data.site.name} ${new Date().getFullYear()}.</div>
@@ -595,32 +605,52 @@
   }
 
   function initContactInfo() {
-    const channelsMount = document.querySelector("[data-contact-channels]");
-    const phonesMount = document.querySelector("[data-contact-phones]");
-    const locationSpan = document.querySelector("[data-contact-location]");
+    const infoMount = document.querySelector("[data-contact-info]");
+    if (!infoMount) return;
 
-    if (channelsMount && data.site.emails) {
-      channelsMount.innerHTML = data.site.emails.map((e) => `
-        <a class="contact-channel-card" href="mailto:${e.address}">
-          <span class="channel-label">${e.label}</span>
-          <span class="channel-address">${e.address}</span>
-          <span class="channel-note">${e.note}</span>
-        </a>
-      `).join("");
-    }
+    const emailSVG = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>`;
+    const phoneSVG = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.18 6.18l.91-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.73 16.92z"/></svg>`;
+    const locationSVG = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>`;
 
-    if (phonesMount && data.site.phones) {
-      phonesMount.innerHTML = data.site.phones.map((p) => `
-        <a class="contact-channel-card" href="tel:${p.number.replaceAll(" ", "")}">
-          <span class="channel-label">${p.label}</span>
-          <span class="channel-address">${p.number}</span>
-        </a>
-      `).join("");
-    }
+    const groups = data.site.emails.map((e) => {
+      const phone = (data.site.phones || []).find(p => p.label === e.label);
+      return `
+      <div class="cdept-group">
+        <div class="cdept-header">
+          <span class="cdept-name">${e.label}</span>
+          <p class="cdept-purpose">${e.purpose || ""}</p>
+        </div>
+        <div class="cdept-rows">
+          <a class="cdept-row" href="mailto:${e.address}">
+            <span class="cdept-icon">${emailSVG}</span>
+            <div class="cdept-info">
+              <span class="cdept-label">Email</span>
+              <span class="cdept-value">${e.address}</span>
+              ${e.note ? `<span class="cdept-desc">${e.note}</span>` : ""}
+            </div>
+          </a>
+          ${phone ? `
+          <a class="cdept-row" href="tel:${phone.number.replaceAll(" ", "")}">
+            <span class="cdept-icon">${phoneSVG}</span>
+            <div class="cdept-info">
+              <span class="cdept-label">Phone</span>
+              <span class="cdept-value">${phone.number}</span>
+            </div>
+          </a>` : ""}
+        </div>
+      </div>`;
+    }).join("");
 
-    if (locationSpan) {
-      locationSpan.textContent = data.site.location;
-    }
+    const delivery = `
+      <div class="contact-delivery">
+        <span class="delivery-icon">${locationSVG}</span>
+        <div class="delivery-body">
+          <p class="delivery-title">India | Global Project Delivery</p>
+          <p class="delivery-sub">Serving clients across India and worldwide through remote collaboration and on-site project execution.</p>
+        </div>
+      </div>`;
+
+    infoMount.innerHTML = groups + delivery;
   }
 
 
