@@ -219,6 +219,11 @@ textarea {
   display: none;
 }
 
+/* Nav CTA — hidden on desktop, shown in mobile dropdown */
+.nav-cta {
+  display: none;
+}
+
 .hero {
   position: relative;
   min-height: 100svh;
@@ -1093,106 +1098,203 @@ textarea {
   margin-top: 18px;
 }
 
-/* Contact Channel Cards */
-.contact-section-title {
-  font-size: 0.72rem;
+/* Contact Details — Department Groups */
+.cdept-group {
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--line);
+}
+
+.cdept-group:last-of-type {
+  border-bottom: none;
+  margin-bottom: 20px;
+}
+
+.cdept-header {
+  margin-bottom: 14px;
+}
+
+.cdept-name {
+  display: block;
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--deep-teal);
+  margin-bottom: 5px;
+  font-family: var(--font-heading);
+}
+
+.cdept-purpose {
+  font-size: 0.8rem;
+  color: var(--muted);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.cdept-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cdept-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background 150ms ease;
+}
+
+.cdept-row:hover {
+  background: rgba(0, 84, 97, 0.05);
+}
+
+.cdept-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 9px;
+  background: rgba(0, 84, 97, 0.08);
+  color: var(--deep-teal);
+  flex-shrink: 0;
+  transition: background 150ms ease, color 150ms ease;
+}
+
+.cdept-row:hover .cdept-icon {
+  background: var(--deep-teal);
+  color: var(--white);
+}
+
+.cdept-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  padding-top: 2px;
+}
+
+.cdept-label {
+  font-size: 0.6rem;
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--muted);
-  margin-top: 20px;
-  margin-bottom: 0;
-}
-
-.contact-channels {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin: 8px 0 0;
-}
-
-.contact-channel-card {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  padding: 14px 16px;
-  border-radius: var(--radius);
-  border: 1px solid var(--line);
-  border-left: 3px solid var(--deep-teal);
-  background: rgba(255, 255, 255, 0.55);
-  text-decoration: none;
-  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
-}
-
-.contact-channel-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 84, 97, 0.1);
-  border-left-color: var(--green);
-}
-
-.channel-label {
-  display: inline-block;
-  font-size: 0.7rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
   color: var(--green);
-  background: rgba(62, 209, 111, 0.1);
-  padding: 2px 8px;
-  border-radius: 20px;
-  width: max-content;
 }
 
-.channel-address {
-  font-size: 0.92rem;
+.cdept-value {
+  font-size: 0.88rem;
   font-weight: 600;
   color: var(--deep-teal);
   word-break: break-all;
+  line-height: 1.3;
 }
 
-.channel-note {
-  font-size: 0.8rem;
+.cdept-desc {
+  font-size: 0.76rem;
   color: var(--muted);
+  line-height: 1.45;
+  margin-top: 1px;
 }
 
-.contact-meta {
+/* Delivery Coverage Row */
+.contact-delivery {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+  padding: 14px 16px;
+  border-radius: 10px;
+  background: rgba(0, 84, 97, 0.05);
+  border: 1px solid rgba(0, 84, 97, 0.12);
+}
+
+.delivery-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 9px;
+  background: rgba(0, 84, 97, 0.1);
+  color: var(--deep-teal);
+  flex-shrink: 0;
+}
+
+.delivery-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-top: 2px;
+}
+
+.delivery-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--deep-teal);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.delivery-sub {
+  font-size: 0.76rem;
+  color: var(--muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+
+/* Footer Contact — Sales / Support groups */
+.footer-contact-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-bottom: 20px;
+}
+
+.footer-contact-dept {
   display: flex;
   flex-direction: column;
   gap: 6px;
-  margin-top: 16px;
-  padding-top: 16px;
-  border-top: 1px solid var(--line);
+  padding-left: 12px;
+  border-left: 2px solid rgba(168, 230, 207, 0.35);
 }
 
-.contact-meta p {
-  font-size: 0.9rem;
-  color: var(--muted);
-}
-
-.contact-meta a {
-  color: var(--deep-teal);
-  font-weight: 600;
-}
-
-/* Footer Email Label Rows */
-.footer-email-row {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 6px;
-  margin-bottom: 4px;
-}
-
-.footer-email-label {
-  font-size: 0.68rem;
+.footer-dept-label {
+  font-size: 0.65rem;
   font-weight: 800;
-  letter-spacing: 0.07em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--mint);
-  background: rgba(168, 230, 207, 0.18);
-  padding: 2px 7px;
-  border-radius: 20px;
+  margin-bottom: 2px;
+}
+
+.footer-contact-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.65) !important;
+  font-size: 0.82rem;
+  line-height: 1.4;
+  text-decoration: none;
+  transition: color 160ms ease;
+}
+
+.footer-contact-row:hover {
+  color: var(--mint) !important;
+}
+
+.footer-contact-icon {
+  display: flex;
+  align-items: center;
   flex-shrink: 0;
+  color: rgba(168, 230, 207, 0.55);
+  transition: color 160ms ease;
+}
+
+.footer-contact-row:hover .footer-contact-icon {
+  color: var(--mint);
 }
 
 .field.full {
@@ -1213,7 +1315,7 @@ textarea {
   padding: 12px 13px;
   color: var(--text);
   background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--line);
+  border: 2px solid rgba(168, 230, 207, 0.45);
   border-radius: var(--radius);
   outline: none;
   transition: var(--transition-premium);
@@ -1450,21 +1552,36 @@ textarea {
 
 @media (max-width: 780px) {
   .site-header {
-    grid-template-columns: auto auto;
-    width: min(calc(100% - 36px), var(--max));
+    grid-template-columns: 1fr auto;
+    width: min(calc(100% - 24px), var(--max));
     top: 10px;
+    gap: 10px;
+    padding: 8px 10px 8px 14px;
+    min-height: 58px;
   }
 
-  .brand span:last-child {
-    max-width: 220px;
+  .brand {
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .brand-name {
+    font-size: 16px;
+    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap;
+  }
+
+  .brand-logo {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
   }
 
   .nav-toggle {
     display: inline-grid;
     justify-self: end;
+    flex-shrink: 0;
     width: 44px;
     height: 44px;
     place-items: center;
@@ -1473,10 +1590,8 @@ textarea {
     border-radius: var(--radius);
   }
 
-  .nav-toggle span:not(.sr-only) {
-    width: 20px;
-    height: 2px;
-    background: var(--white);
+  .header-cta {
+    display: none;
   }
 
   .site-nav {
@@ -1521,13 +1636,36 @@ textarea {
     box-shadow: 0 4px 20px rgba(168, 230, 207, 0.25);
   }
 
-  .header-cta {
-    grid-column: 1 / -1;
-    width: 100%;
+  .nav-cta {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    margin-top: 6px;
+    padding: 13px 20px;
+    border-radius: calc(var(--radius) - 2px);
+    background: var(--green);
+    color: var(--charcoal) !important;
+    font-size: 0.96rem;
+    font-weight: 800;
+    text-align: center;
+    border-top: 1px solid rgba(168, 230, 207, 0.15);
+    box-shadow: 0 8px 24px rgba(62, 209, 111, 0.25);
+    transition: background 160ms ease, transform 160ms ease;
+  }
+
+  .nav-cta:hover {
+    background: #4be57d;
+    transform: translateY(-1px);
+  }
+
+  .nav-toggle span:not(.sr-only) {
+    width: 20px;
+    height: 2px;
+    background: var(--white);
   }
 
   .hero {
-    padding-top: 172px;
+    padding-top: 90px;
   }
 
   .hero-inner {
@@ -2629,5 +2767,29 @@ html.lenis, html.lenis body {
   .vortiq-chatbot {
     right: 16px;
     bottom: 16px;
+  }
+}
+
+/* Extra-narrow phones (Oppo, Vivo, ~360–375px) */
+@media (max-width: 400px) {
+  .site-header {
+    width: min(calc(100% - 16px), var(--max));
+    padding: 7px 8px 7px 10px;
+    gap: 8px;
+    min-height: 52px;
+  }
+
+  .brand-logo {
+    width: 36px;
+    height: 36px;
+  }
+
+  .brand-name {
+    font-size: 13px;
+  }
+
+  .nav-toggle {
+    width: 40px;
+    height: 40px;
   }
 }
