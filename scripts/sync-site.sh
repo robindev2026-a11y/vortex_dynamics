@@ -14,6 +14,7 @@ PAGES=(
   careers.html
   contact.html
   request-quote.html
+  upskill-initiative.html
 )
 
 ROOT_FILES=(
